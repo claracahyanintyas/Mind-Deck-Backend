@@ -1,0 +1,15 @@
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - cd backend
+    - ./gradlew assemble --no-daemon --no-watch-fs
+
+test:
+  stage: test
+  script:
+    - cd backend
+    - ./gradlew test --no-daemon --no-watch-fs
