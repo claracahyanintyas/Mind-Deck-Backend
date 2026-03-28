@@ -40,7 +40,7 @@ public class DeckEntity {
     private OffsetDateTime createdAt;
 
     @NotNull
-    @Column(name = "updated_at", updatable = false)
+    @Column(name = "updated_at")
     @UpdateTimestamp
     private OffsetDateTime updatedAt;
 

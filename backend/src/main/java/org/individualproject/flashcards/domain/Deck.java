@@ -24,20 +24,31 @@ public class Deck {
         this.updatedAt = OffsetDateTime.now();
         this.isPrivate = isPrivate;
     }
-    public void setName(String newName) {
+//    public void setName(String newName) {
+//        if (newName == null || newName.isEmpty()) {
+//            throw new IllegalArgumentException("name cannot be null");
+//        }
+//        this.name = newName;
+//        this.updatedAt = OffsetDateTime.now();
+//    }
+//    public void setDescription(String newDescription) {
+//        this.description = newDescription;
+//        this.updatedAt = OffsetDateTime.now();
+//    }
+//    public void setIsPrivate(Boolean newIsPrivate) {
+//        this.isPrivate = newIsPrivate;
+//        this.updatedAt = OffsetDateTime.now();
+//    }
+    public void updateDetails(String newName, String newDescription, Boolean newIsPrivate) {
         if (newName == null || newName.isEmpty()) {
             throw new IllegalArgumentException("name cannot be null");
         }
-        this.name = newName;
-        this.updatedAt = OffsetDateTime.now();
+            this.name = newName;
+            this.description = newDescription;
+            this.isPrivate = newIsPrivate;
+            this.updatedAt = OffsetDateTime.now();
     }
-    public void setDescription(String newDescription) {
-        this.description = newDescription;
-        this.updatedAt = OffsetDateTime.now();
-    }
-    public void setIsPrivate(Boolean newIsPrivate) {
-        this.isPrivate = newIsPrivate;
-        this.updatedAt = OffsetDateTime.now();
-    }
+
+
 
 }
