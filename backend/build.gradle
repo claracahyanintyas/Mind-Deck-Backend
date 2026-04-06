@@ -76,5 +76,6 @@ sonar {
         property "sonar.projectName", "Flash-Cards"
         property "sonar.java.coveragePlugin", "jacoco"
         property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
+        property "sonar.qualitygate.wait", "true"
     }
 }

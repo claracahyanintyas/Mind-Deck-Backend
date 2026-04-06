@@ -27,6 +27,6 @@ sonarqube:
     SONAR_TOKEN: "$SONAR_TOKEN"
   script:
     - cd backend
-    - ./gradlew sonarqube -- -Dsonar.qualitygate.wait=true
+    - ./gradlew sonar
   dependencies:
     - test
