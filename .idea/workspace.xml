@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f57efced-8403-4629-bc47-2e4e4c6f7688" name="Changes" comment="gitlab ci added">
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="f57efced-8403-4629-bc47-2e4e4c6f7688" name="Changes" comment="sonarqube fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,6 +118,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.FlashCardsApplication.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
@@ -341,7 +340,7 @@
       <workItem from="1774796185070" duration="676000" />
       <workItem from="1774799494827" duration="2574000" />
       <workItem from="1774885373935" duration="3113000" />
-      <workItem from="1774945144908" duration="20778000" />
+      <workItem from="1774945144908" duration="23579000" />
     </task>
     <task id="LOCAL-00001" summary="gitlab ci added">
       <option name="closed" value="true" />
@@ -351,7 +350,31 @@
       <option name="project" value="LOCAL" />
       <updated>1773155994975</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="sonarqube fix">
+      <option name="closed" value="true" />
+      <created>1775489736827</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1775489736827</updated>
+    </task>
+    <task id="LOCAL-00003" summary="sonarqube fix">
+      <option name="closed" value="true" />
+      <created>1775490025152</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1775490025152</updated>
+    </task>
+    <task id="LOCAL-00004" summary="sonarqube fix">
+      <option name="closed" value="true" />
+      <created>1775491787199</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1775491787199</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,9 +393,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="gitlab ci added" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitlab ci added" />
+    <MESSAGE value="sonarqube fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="sonarqube fix" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/flash_cards$Tests_in__backend_test_.ic" NAME="Tests in 'backend.test' Coverage Results" MODIFIED="1775488260496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/flash_cards$Tests_in__backend_test_.ic" NAME="Tests in 'backend.test' Coverage Results" MODIFIED="1775488796148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

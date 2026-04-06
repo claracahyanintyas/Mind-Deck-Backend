@@ -1,6 +1,5 @@
 package org.individualproject.flashcards.usecase.implementation;
 
-import org.individualproject.flashcards.domain.Deck;
 import org.individualproject.flashcards.infrastructure.config.database.entity.DeckEntity;
 import org.individualproject.flashcards.infrastructure.config.database.repository.DeckRepository;
 import org.individualproject.flashcards.infrastructure.deck.DTO.UpdateDeckRequest;
