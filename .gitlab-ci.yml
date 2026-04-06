@@ -1,7 +1,7 @@
 stages:
-  - build
-  - test
-  - sonarqube
+    - build
+    - test
+    - sonarqube
 
 build:
   stage: build
