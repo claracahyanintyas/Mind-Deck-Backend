@@ -1,7 +1,8 @@
 package org.individualproject.flashcards.infrastructure;
 
 import jakarta.servlet.http.HttpServletRequest;
-import org.individualproject.flashcards.usecase.exception.DeckNotFoundException;
+import org.individualproject.flashcards.application.exception.CardNotFoundException;
+import org.individualproject.flashcards.application.exception.DeckNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -18,6 +19,17 @@ public class GlobalExceptionHandler {
     }
     @ExceptionHandler(DeckNotFoundException.class)
     public ResponseEntity<ApiError> handleDeckNotFound(DeckNotFoundException ex,
+                                                       HttpServletRequest request) {
+        ApiError error = new ApiError(
+                HttpStatus.NOT_FOUND.value(),
+                HttpStatus.NOT_FOUND.getReasonPhrase(),
+                ex.getMessage(),
+                request.getRequestURI()
+        );
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(CardNotFoundException.class)
+    public ResponseEntity<ApiError> handleCardNotFound(CardNotFoundException ex,
                                                        HttpServletRequest request) {
         ApiError error = new ApiError(
                 HttpStatus.NOT_FOUND.value(),
