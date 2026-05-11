@@ -102,6 +102,7 @@
     "Gradle.CreateDeckUseCaseImplTest.executor": "Run",
     "Gradle.D:/kuliah/full stack development/flash-cards/backend.executor": "Run",
     "Gradle.D:/kuliah/full stack development/flash-cards/backend/settings.gradle.executor": "Run",
+    "Gradle.DeckControllerTest.addCardToDeck_EmptyFrontContent_ThrowsException.executor": "Run",
     "Gradle.DeckControllerTest.addCardToDeck_InvalidDeckId_ThrowsException.executor": "Run",
     "Gradle.DeckControllerTest.createDeck_AllFields_ReturnsDeck.executor": "Run",
     "Gradle.DeckControllerTest.createDeck_EmptyName_ThrowsException.executor": "Run",
@@ -162,7 +163,7 @@
       <recent name="org.individualproject.flashcards.usecase.implementation" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DeckControllerTest.addCardToDeck_InvalidDeckId_ThrowsException">
+  <component name="RunManager" selected="Gradle.DeckControllerTest.addCardToDeck_EmptyFrontContent_ThrowsException">
     <configuration name="FlashCardsApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="envFilePaths">
         <option value="$PROJECT_DIR$/../bas-world-group-3/.env" />
@@ -178,30 +179,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="CardControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.individualproject.flashcards.infrastructure.card.CardControllerTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
     </configuration>
     <configuration name="D:/kuliah/full stack development/flash-cards/backend" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
       <ExternalSystemSettings>
@@ -237,6 +214,30 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;org.individualproject.flashcards.infrastructure.deck.controller.DeckControllerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="DeckControllerTest.addCardToDeck_EmptyFrontContent_ThrowsException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.individualproject.flashcards.infrastructure.deck.controller.DeckControllerTest.addCardToDeck_EmptyFrontContent_ThrowsException&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -328,8 +329,8 @@
     <list>
       <item itemvalue="Application.FlashCardsApplication" />
       <item itemvalue="Gradle.D:/kuliah/full stack development/flash-cards/backend" />
-      <item itemvalue="Gradle.CardControllerTest" />
       <item itemvalue="Gradle.DeckControllerTest" />
+      <item itemvalue="Gradle.DeckControllerTest.addCardToDeck_EmptyFrontContent_ThrowsException" />
       <item itemvalue="Gradle.DeckControllerTest.addCardToDeck_InvalidDeckId_ThrowsException" />
       <item itemvalue="Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks" />
       <item itemvalue="Gradle.Tests in 'backend.test'" />
@@ -337,11 +338,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.DeckControllerTest.addCardToDeck_EmptyFrontContent_ThrowsException" />
+        <item itemvalue="Gradle.Tests in 'backend.test'" />
         <item itemvalue="Gradle.DeckControllerTest.addCardToDeck_InvalidDeckId_ThrowsException" />
         <item itemvalue="Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks" />
         <item itemvalue="Gradle.DeckControllerTest" />
-        <item itemvalue="Gradle.CardControllerTest" />
-        <item itemvalue="Gradle.Tests in 'backend.test'" />
       </list>
     </recent_temporary>
   </component>
@@ -380,7 +381,7 @@
       <workItem from="1777326728758" duration="371000" />
       <workItem from="1777937321280" duration="7777000" />
       <workItem from="1778506307613" duration="2188000" />
-      <workItem from="1778508520407" duration="4065000" />
+      <workItem from="1778508520407" duration="7178000" />
     </task>
     <task id="LOCAL-00001" summary="gitlab ci added">
       <option name="closed" value="true" />

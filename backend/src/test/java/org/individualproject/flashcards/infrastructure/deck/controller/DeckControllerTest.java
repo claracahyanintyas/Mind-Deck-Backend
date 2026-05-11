@@ -217,7 +217,7 @@ class DeckControllerTest {
         var savedDeck = deckRepository.save(deck);
 
         var request = new AddCardRequest(
-                "front",
+                "",
                 ContentType.PLAIN_TEXT,
                 "back",
                 ContentType.PLAIN_TEXT
