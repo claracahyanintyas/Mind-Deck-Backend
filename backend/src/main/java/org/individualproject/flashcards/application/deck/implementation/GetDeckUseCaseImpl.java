@@ -1,6 +1,7 @@
 package org.individualproject.flashcards.application.deck.implementation;
 
 import lombok.AllArgsConstructor;
+import org.individualproject.flashcards.application.card.DTO.CardPublicData;
 import org.individualproject.flashcards.application.persistence.DeckRepository;
 import org.individualproject.flashcards.application.deck.DTO.DeckPublicData;
 import org.individualproject.flashcards.application.deck.GetDeckUseCase;
@@ -17,7 +18,20 @@ public class GetDeckUseCaseImpl implements GetDeckUseCase {
             throw new IllegalArgumentException("Invalid ID");
         }
         var deck = deckRepository.findById(id).orElseThrow(DeckNotFoundException::new);
+        var cards = deck.getCards()
+                .stream()
+                .map(card -> new CardPublicData(
+                        card.getId(),
+                        card.getFrontSide().content(),
+                        card.getFrontSide().contentType(),
+                        card.getBackSide().content(),
+                        card.getBackSide().contentType(),
+                        card.getCreatedAt(),
+                        card.getUpdatedAt()
+                ))
+                .toList();
+
         return new DeckPublicData(deck.getId(), deck.getName(), deck.getDescription(),
-                deck.getCreatedAt(), deck.getUpdatedAt(), deck.getIsPrivate());
+                deck.getCreatedAt(), deck.getUpdatedAt(), deck.getIsPrivate(), cards);
     }
 }

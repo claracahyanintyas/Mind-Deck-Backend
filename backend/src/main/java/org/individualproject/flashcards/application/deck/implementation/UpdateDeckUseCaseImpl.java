@@ -1,6 +1,7 @@
 package org.individualproject.flashcards.application.deck.implementation;
 
 import lombok.AllArgsConstructor;
+import org.individualproject.flashcards.application.card.DTO.CardPublicData;
 import org.individualproject.flashcards.application.persistence.DeckRepository;
 import org.individualproject.flashcards.application.deck.DTO.DeckPublicData;
 import org.individualproject.flashcards.application.deck.DTO.UpdateDeckCommand;
@@ -28,8 +29,21 @@ public class UpdateDeckUseCaseImpl implements UpdateDeckUseCase {
 
         var savedDeck = deckRepository.save(deck);
 
+        var cards = savedDeck.getCards()
+                .stream()
+                .map(card -> new CardPublicData(
+                        card.getId(),
+                        card.getFrontSide().content(),
+                        card.getFrontSide().contentType(),
+                        card.getBackSide().content(),
+                        card.getBackSide().contentType(),
+                        card.getCreatedAt(),
+                        card.getUpdatedAt()
+                ))
+                .toList();
+
         return new DeckPublicData(savedDeck.getId(), savedDeck.getName(),
                 savedDeck.getDescription(), savedDeck.getCreatedAt(),
-                savedDeck.getUpdatedAt(), savedDeck.getIsPrivate());
+                savedDeck.getUpdatedAt(), savedDeck.getIsPrivate(), cards);
     }
 }

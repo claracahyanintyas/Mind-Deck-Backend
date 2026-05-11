@@ -21,6 +21,9 @@ public class AddCardToDeckUseCaseImpl implements AddCardToDeckUseCase {
         if (command.deckId() == null) {
             throw new IllegalArgumentException("Deck ID is required");
         }
+        if (command.deckId() <= 0){
+            throw new IllegalArgumentException("Deck ID cannot be below 1");
+        }
         var deck = deckRepository.findById(command.deckId()).orElseThrow(DeckNotFoundException::new);
         CardSide front = new CardSide(command.frontContent(),  command.frontContentType());
         CardSide back = new CardSide(command.backContent(),  command.backContentType());

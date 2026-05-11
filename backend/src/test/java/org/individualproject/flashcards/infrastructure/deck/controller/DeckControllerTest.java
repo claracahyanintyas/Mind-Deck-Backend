@@ -2,8 +2,10 @@ package org.individualproject.flashcards.infrastructure.deck.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
+import org.individualproject.flashcards.domain.card.ContentType;
 import org.individualproject.flashcards.infrastructure.config.database.entity.DeckEntity;
 import org.individualproject.flashcards.infrastructure.config.database.JpaRepository.DeckJpaRepository;
+import org.individualproject.flashcards.infrastructure.deck.DTO.AddCardRequest;
 import org.individualproject.flashcards.infrastructure.deck.DTO.CreateDeckRequest;
 import org.individualproject.flashcards.infrastructure.deck.DTO.UpdateDeckRequest;
 import org.junit.jupiter.api.Test;
@@ -91,7 +93,7 @@ class DeckControllerTest {
     }
     @Test
     void getDecks_availableDecks_returnsDecks() throws Exception {
-        var entity = new DeckEntity(1L, "name", "description", OffsetDateTime.now(), OffsetDateTime.now(), true, new ArrayList<>());
+        var entity = new DeckEntity(1L, "name", "description", OffsetDateTime.now(), OffsetDateTime.now(), false, new ArrayList<>());
         deckRepository.save(entity);
         var entity2 = new DeckEntity(2L,  "name2", "description2", OffsetDateTime.now(), OffsetDateTime.now(), false, new ArrayList<>());
         deckRepository.save(entity2);
@@ -139,5 +141,91 @@ class DeckControllerTest {
         deckRepository.save(entity);
         mockMvc.perform(delete(baseUrl + "/" + entity.getId()))
                 .andExpect(status().isNoContent());
+    }
+    @Test
+    void addCardToDeck_AllFields_ReturnsCard() throws Exception {
+        var deck = new DeckEntity(
+                1L,
+                "deck",
+                "description",
+                OffsetDateTime.now(),
+                OffsetDateTime.now(),
+                false,
+                new ArrayList<>()
+        );
+
+        var savedDeck = deckRepository.save(deck);
+
+        var request = new AddCardRequest(
+                "front content",
+                ContentType.PLAIN_TEXT,
+                "back content",
+                ContentType.PLAIN_TEXT
+        );
+
+        mockMvc.perform(post("/api/decks/" + savedDeck.getId() + "/cards")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").isNotEmpty())
+                .andExpect(jsonPath("$.frontContent").value("front content"))
+                .andExpect(jsonPath("$.backContent").value("back content"));
+    }
+
+    @Test
+    void addCardToDeck_InvalidDeckId_ThrowsException() throws Exception {
+        var request = new AddCardRequest(
+                "front content",
+                ContentType.PLAIN_TEXT,
+                "back content",
+                ContentType.PLAIN_TEXT
+        );
+
+        mockMvc.perform(post("/api/decks/-1/cards")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void addCardToDeck_DeckNotFound_ThrowsException() throws Exception {
+        var request = new AddCardRequest(
+                "front content",
+                ContentType.PLAIN_TEXT,
+                "back content",
+                ContentType.PLAIN_TEXT
+        );
+
+        mockMvc.perform(post("/api/decks/999/cards")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void addCardToDeck_EmptyFrontContent_ThrowsException() throws Exception {
+        var deck = new DeckEntity(
+                1L,
+                "deck",
+                "description",
+                OffsetDateTime.now(),
+                OffsetDateTime.now(),
+                false,
+                new ArrayList<>()
+        );
+
+        var savedDeck = deckRepository.save(deck);
+
+        var request = new AddCardRequest(
+                "front",
+                ContentType.PLAIN_TEXT,
+                "back",
+                ContentType.PLAIN_TEXT
+        );
+
+        mockMvc.perform(post("/api/decks/" + savedDeck.getId() + "/cards")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isBadRequest());
     }
 }

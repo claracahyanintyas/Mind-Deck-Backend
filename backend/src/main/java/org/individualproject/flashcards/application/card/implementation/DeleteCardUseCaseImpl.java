@@ -12,6 +12,9 @@ public class DeleteCardUseCaseImpl implements DeleteCardUseCase {
 
     @Override
     public void deleteCard(Long id) {
+        if (id <= 0){
+            throw new IllegalArgumentException("Invalid ID");
+        }
         cardRepository.deleteById(id);
     }
 }

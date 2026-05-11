@@ -1,6 +1,7 @@
 package org.individualproject.flashcards.application.deck.implementation;
 
 import lombok.AllArgsConstructor;
+import org.individualproject.flashcards.application.card.DTO.CardPublicData;
 import org.individualproject.flashcards.application.persistence.DeckRepository;
 import org.individualproject.flashcards.domain.deck.Deck;
 import org.individualproject.flashcards.application.deck.DTO.DeckPublicData;
@@ -18,8 +19,21 @@ public class GetAllDecksUseCaseImpl implements GetAllDecksUseCase {
         var decks = deckRepository.findAll();
         List<DeckPublicData> deckPublicDataList = new ArrayList<>();
         for (Deck deck : decks){
+            var cards = deck.getCards()
+                    .stream()
+                    .map(card -> new CardPublicData(
+                            card.getId(),
+                            card.getFrontSide().content(),
+                            card.getFrontSide().contentType(),
+                            card.getBackSide().content(),
+                            card.getBackSide().contentType(),
+                            card.getCreatedAt(),
+                            card.getUpdatedAt()
+                    ))
+                    .toList();
+
             deckPublicDataList.add(new DeckPublicData(deck.getId(),deck.getName(), deck.getDescription(),
-                    deck.getCreatedAt(), deck.getUpdatedAt(), deck.getIsPrivate()));
+                    deck.getCreatedAt(), deck.getUpdatedAt(), deck.getIsPrivate(), cards));
         }
         return deckPublicDataList;
     }

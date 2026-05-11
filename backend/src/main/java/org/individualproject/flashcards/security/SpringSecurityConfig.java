@@ -79,6 +79,9 @@ public class SpringSecurityConfig {
                     authorize.requestMatchers(HttpMethod.POST, deckPath).permitAll();
                     authorize.requestMatchers(HttpMethod.DELETE, deckPath).permitAll();
                     authorize.requestMatchers(HttpMethod.PUT, deckPath).permitAll();
+                    authorize.requestMatchers(HttpMethod.GET, cardPath).permitAll();
+                    authorize.requestMatchers(HttpMethod.POST, cardPath).permitAll();
+                    authorize.requestMatchers(HttpMethod.DELETE, cardPath).permitAll();
 //                    authorize.requestMatchers(HttpMethod.PUT, userPath).authenticated();
                     authorize.anyRequest().authenticated();
                 })
