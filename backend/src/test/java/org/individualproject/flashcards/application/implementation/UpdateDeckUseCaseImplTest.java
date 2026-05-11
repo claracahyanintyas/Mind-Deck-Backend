@@ -1,6 +1,8 @@
 package org.individualproject.flashcards.application.implementation;
 
 import org.individualproject.flashcards.application.deck.DTO.UpdateDeckCommand;
+import org.individualproject.flashcards.application.persistence.DeckRepository;
+import org.individualproject.flashcards.domain.deck.Deck;
 import org.individualproject.flashcards.infrastructure.config.database.entity.DeckEntity;
 import org.individualproject.flashcards.infrastructure.config.database.JpaRepository.DeckJpaRepository;
 import org.individualproject.flashcards.infrastructure.deck.DTO.UpdateDeckRequest;
@@ -13,39 +15,26 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class UpdateDeckUseCaseImplTest {
 
     @Mock
-    private DeckJpaRepository deckRepository;
+    private DeckRepository deckRepository;
 
     @InjectMocks
     private UpdateDeckUseCaseImpl updateDeckUseCase;
 
     @Test
     void updateDeck_properInput_returnsUpdatedDeck() {
-        var originalEntity = DeckEntity.builder()
-                .id(1L)
-                .name("name")
-                .description("description")
-                .createdAt(OffsetDateTime.now())
-                .updatedAt(OffsetDateTime.now())
-                .isPrivate(false)
-                .build();
-        var updatedEntity = DeckEntity.builder()
-                .id(1L)
-                .name("new name")
-                .description("desc")
-                .createdAt(OffsetDateTime.now())
-                .updatedAt(OffsetDateTime.now())
-                .isPrivate(true)
-                .build();
+        var originalEntity = new Deck(1L, "name", "", OffsetDateTime.now(), OffsetDateTime.now(), false, new ArrayList<>());
+        var updatedEntity =  new Deck(1L, "new name", "desc", OffsetDateTime.now(), OffsetDateTime.now(), true, new ArrayList<>());
 
         when(deckRepository.findById(1L)).thenReturn(Optional.of(originalEntity));
         when(deckRepository.save(any())).thenReturn(updatedEntity);
@@ -60,28 +49,20 @@ class UpdateDeckUseCaseImplTest {
         assertEquals(updateRequest.isPrivate(), response.isPrivate());
     }
     @Test
-    void updateDeck_emptyName_returnsUpdatedDeck() {
-        var originalEntity = DeckEntity.builder()
-                .id(1L)
-                .name("name")
-                .description("description")
-                .createdAt(OffsetDateTime.now())
-                .updatedAt(OffsetDateTime.now())
-                .isPrivate(false)
-                .build();
-        when(deckRepository.findById(1L)).thenReturn(Optional.of(originalEntity));
-
-        var updateRequest = new UpdateDeckCommand("", "desc", true);
-
-        assertThrows(IllegalArgumentException.class, () -> updateDeckUseCase.updateDeck(1L, updateRequest));
-    }
-    @Test
     void updateDeck_deckNotFound_throwsDeckNotFoundException() {
         when(deckRepository.findById(1L)).thenReturn(Optional.empty());
 
         var updateRequest = new UpdateDeckCommand("name", "desc", true);
 
         assertThrows(DeckNotFoundException.class, () -> updateDeckUseCase.updateDeck(1L, updateRequest));
+        verifyNoMoreInteractions(deckRepository);
+    }
+    @Test
+    void updateDeck_nameIsEmpty_throwsIllegalArgumentException() {
+        var updateRequest = new UpdateDeckCommand("", "desc", true);
+
+        assertThrows(IllegalArgumentException.class, () -> updateDeckUseCase.updateDeck(1L, updateRequest));
+        verifyNoInteractions(deckRepository);
     }
     @Test
     void updateDeck_invalidId_throwsException() {

@@ -1,6 +1,8 @@
 package org.individualproject.flashcards.application.implementation;
 
 import org.individualproject.flashcards.application.deck.DTO.CreateDeckCommand;
+import org.individualproject.flashcards.application.persistence.DeckRepository;
+import org.individualproject.flashcards.domain.deck.Deck;
 import org.individualproject.flashcards.infrastructure.config.database.entity.DeckEntity;
 import org.individualproject.flashcards.infrastructure.config.database.JpaRepository.DeckJpaRepository;
 import org.individualproject.flashcards.infrastructure.deck.DTO.CreateDeckRequest;
@@ -22,7 +24,7 @@ import static org.mockito.Mockito.*;
 class CreateDeckUseCaseImplTest {
 
     @Mock
-    private DeckJpaRepository deckRepository;
+    private DeckRepository deckRepository;
 
     @InjectMocks
     private CreateDeckUseCaseImpl createDeckUseCaseImpl;
@@ -33,7 +35,7 @@ class CreateDeckUseCaseImplTest {
         var name = "name";
         var isPrivate = true;
         var request = new CreateDeckCommand(name, null,isPrivate);
-        var saveDeck = new DeckEntity(1L, name, "", OffsetDateTime.now(), OffsetDateTime.now(), isPrivate, new ArrayList<>());
+        var saveDeck = new Deck(1L, name, "", OffsetDateTime.now(), OffsetDateTime.now(), isPrivate, new ArrayList<>());
 
         when(deckRepository.save(any())).thenReturn(saveDeck);
 

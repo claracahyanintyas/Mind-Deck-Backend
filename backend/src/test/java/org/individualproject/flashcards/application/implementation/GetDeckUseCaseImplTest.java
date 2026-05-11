@@ -1,5 +1,7 @@
 package org.individualproject.flashcards.application.implementation;
 
+import org.individualproject.flashcards.application.persistence.DeckRepository;
+import org.individualproject.flashcards.domain.deck.Deck;
 import org.individualproject.flashcards.infrastructure.config.database.entity.DeckEntity;
 import org.individualproject.flashcards.infrastructure.config.database.JpaRepository.DeckJpaRepository;
 import org.individualproject.flashcards.application.deck.implementation.GetDeckUseCaseImpl;
@@ -11,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,7 +23,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class GetDeckUseCaseImplTest {
     @Mock
-    private DeckJpaRepository deckRepository;
+    private DeckRepository deckRepository;
 
     @InjectMocks
     private GetDeckUseCaseImpl getDeckUseCaseImpl;
@@ -28,14 +31,7 @@ class GetDeckUseCaseImplTest {
     @Test
     void getDeck_validId_returnDeck() {
         var id = 1L;
-        var deckEntity = DeckEntity.builder()
-                .id(id)
-                .name("name")
-                .description("desc")
-                .createdAt(OffsetDateTime.now())
-                .updatedAt(OffsetDateTime.now())
-                .isPrivate(true)
-                .build();
+        var deckEntity = new Deck(1L, "name", "desc", OffsetDateTime.now(), OffsetDateTime.now(), true, new ArrayList<>());
 
         when(deckRepository.findById(1L)).thenReturn(Optional.of(deckEntity));
 

@@ -59,7 +59,7 @@ class AddCardToDeckUseCaseImplTest {
 
         Card card = new Card(new CardSide("front", ContentType.PLAIN_TEXT), new CardSide("back", ContentType.PLAIN_TEXT));
         when(deckRepository.findById(deckId)).thenReturn(java.util.Optional.of(deck));
-        when(deckRepository.save(any())).thenAnswer(invocation -> {
+        when(deckRepository.saveAndFlush(any())).thenAnswer(invocation -> {
             Deck inputDeck = invocation.getArgument(0);
 
             Card inputCard = inputDeck.getCards().get(0);
@@ -93,7 +93,7 @@ class AddCardToDeckUseCaseImplTest {
         assertThat(result.backContent()).isEqualTo("back");
 
         verify(deckRepository).findById(deckId);
-        verify(deckRepository).save(any());
+        verify(deckRepository).saveAndFlush(any());
     }
     @Test
     void shouldThrowException_whenDeckIdIsNull() {

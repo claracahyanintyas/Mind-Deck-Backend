@@ -15,6 +15,9 @@ public class UpdateDeckUseCaseImpl implements UpdateDeckUseCase {
         if (command == null) {
             throw new IllegalArgumentException("Request cannot be null");
         }
+        if (command.name().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be empty");
+        }
         if (id == null || id <= 0) {
             throw new IllegalArgumentException("deckId cannot be null or below 1");
         }

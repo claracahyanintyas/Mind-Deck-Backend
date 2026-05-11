@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f57efced-8403-4629-bc47-2e4e4c6f7688" name="Changes" comment="frontend start">
-      <change afterPath="$PROJECT_DIR$/.idea/modules/backend.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/backend.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/backend.test.iml" afterDir="false" />
+    <list default="true" id="f57efced-8403-4629-bc47-2e4e4c6f7688" name="Changes" comment="add card to deck, added CORS config and also some security">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,6 +96,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Gradle.AddCardToDeckUseCaseImplTest.shouldAddCardToDeckAndReturnPublicData.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Build backend.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.CreateDeckUseCaseImplTest.createDeck_EmptyTitle_shouldThrowException.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.CreateDeckUseCaseImplTest.createDeck_withTitle_shouldReturnCorrectDeck.executor&quot;: &quot;Run&quot;,
@@ -116,12 +114,15 @@
     &quot;Gradle.DeckControllerTest.updateDeck_AllFields_ReturnsDeck.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.DeckControllerTest.updateDeck_EmptyName_ReturnsDeck.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GetDeckUseCaseImplTest.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GetDeckUseCaseImplTest.getDeck_deckNotExist_throwsException.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GetDeckUseCaseImplTest.getDeck_validId_returnDeck.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'backend.test'.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.Tests in 'backend.test'.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UpdateDeckUseCaseImplTest.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.UpdateDeckUseCaseImplTest.updateDeck_deckNotFound_throwsDeckNotFoundException.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.UpdateDeckUseCaseImplTest.updateDeck_emptyName_returnsUpdatedDeck.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.UpdateDeckUseCaseImplTest.updateDeck_invalidId_throwsException.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UpdateDeckUseCaseImplTest.updateDeck_nameIsEmpty_throwsIllegalArgumentException.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.UpdateDeckUseCaseImplTest.updateDeck_properInput_returnsUpdatedDeck.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.backend [:org.individualproject.flashcards.FlashCardsApplication.main()].executor&quot;: &quot;Run&quot;,
     &quot;JUnit.DeckControllerTest.executor&quot;: &quot;Run&quot;,
@@ -160,7 +161,7 @@
       <recent name="org.individualproject.flashcards.usecase.implementation" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.FlashCardsApplication">
+  <component name="RunManager" selected="Gradle.Tests in 'backend.test'">
     <configuration name="FlashCardsApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="envFilePaths">
         <option value="$PROJECT_DIR$/../bas-world-group-3/.env" />
@@ -197,102 +198,6 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="DeckControllerTest.deleteDeck_ReturnsEmpty" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.individualproject.flashcards.infrastructure.deck.controller.DeckControllerTest.deleteDeck_ReturnsEmpty&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="DeckControllerTest.getDecks_availableDecks_returnsDecks" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.individualproject.flashcards.infrastructure.deck.controller.DeckControllerTest.getDecks_availableDecks_returnsDecks&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="DeckControllerTest.updateDeck_AllFields_ReturnsDeck" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.individualproject.flashcards.infrastructure.deck.controller.DeckControllerTest.updateDeck_AllFields_ReturnsDeck&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="DeckControllerTest.updateDeck_EmptyName_ReturnsDeck" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.individualproject.flashcards.infrastructure.deck.controller.DeckControllerTest.updateDeck_EmptyName_ReturnsDeck&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="Tests in 'backend.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -315,6 +220,102 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="UpdateDeckUseCaseImplTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.individualproject.flashcards.application.implementation.UpdateDeckUseCaseImplTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="UpdateDeckUseCaseImplTest.updateDeck_emptyName_returnsUpdatedDeck" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.individualproject.flashcards.application.implementation.UpdateDeckUseCaseImplTest.updateDeck_emptyName_returnsUpdatedDeck&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="UpdateDeckUseCaseImplTest.updateDeck_nameIsEmpty_throwsIllegalArgumentException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.individualproject.flashcards.application.implementation.UpdateDeckUseCaseImplTest.updateDeck_nameIsEmpty_throwsIllegalArgumentException&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="UpdateDeckUseCaseImplTest.updateDeck_properInput_returnsUpdatedDeck" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.individualproject.flashcards.application.implementation.UpdateDeckUseCaseImplTest.updateDeck_properInput_returnsUpdatedDeck&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="FlashCardsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="backend.main" />
@@ -326,20 +327,20 @@
     <list>
       <item itemvalue="Application.FlashCardsApplication" />
       <item itemvalue="Gradle.D:/kuliah/full stack development/flash-cards/backend" />
-      <item itemvalue="Gradle.DeckControllerTest.deleteDeck_ReturnsEmpty" />
-      <item itemvalue="Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks" />
-      <item itemvalue="Gradle.DeckControllerTest.updateDeck_AllFields_ReturnsDeck" />
-      <item itemvalue="Gradle.DeckControllerTest.updateDeck_EmptyName_ReturnsDeck" />
       <item itemvalue="Gradle.Tests in 'backend.test'" />
+      <item itemvalue="Gradle.UpdateDeckUseCaseImplTest" />
+      <item itemvalue="Gradle.UpdateDeckUseCaseImplTest.updateDeck_emptyName_returnsUpdatedDeck" />
+      <item itemvalue="Gradle.UpdateDeckUseCaseImplTest.updateDeck_nameIsEmpty_throwsIllegalArgumentException" />
+      <item itemvalue="Gradle.UpdateDeckUseCaseImplTest.updateDeck_properInput_returnsUpdatedDeck" />
       <item itemvalue="Spring Boot.FlashCardsApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests in 'backend.test'" />
-        <item itemvalue="Gradle.DeckControllerTest.updateDeck_EmptyName_ReturnsDeck" />
-        <item itemvalue="Gradle.DeckControllerTest.updateDeck_AllFields_ReturnsDeck" />
-        <item itemvalue="Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks" />
-        <item itemvalue="Gradle.DeckControllerTest.deleteDeck_ReturnsEmpty" />
+        <item itemvalue="Gradle.UpdateDeckUseCaseImplTest.updateDeck_nameIsEmpty_throwsIllegalArgumentException" />
+        <item itemvalue="Gradle.UpdateDeckUseCaseImplTest" />
+        <item itemvalue="Gradle.UpdateDeckUseCaseImplTest.updateDeck_emptyName_returnsUpdatedDeck" />
+        <item itemvalue="Gradle.UpdateDeckUseCaseImplTest.updateDeck_properInput_returnsUpdatedDeck" />
       </list>
     </recent_temporary>
   </component>
@@ -377,6 +378,8 @@
       <workItem from="1775737544165" duration="17303000" />
       <workItem from="1777326728758" duration="371000" />
       <workItem from="1777937321280" duration="7777000" />
+      <workItem from="1778506307613" duration="2188000" />
+      <workItem from="1778508520407" duration="646000" />
     </task>
     <task id="LOCAL-00001" summary="gitlab ci added">
       <option name="closed" value="true" />
@@ -418,7 +421,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775747118116</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add card to deck, added CORS config and also some security">
+      <option name="closed" value="true" />
+      <created>1778506396645</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1778506396645</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,7 +450,8 @@
     <MESSAGE value="gitlab ci added" />
     <MESSAGE value="sonarqube fix" />
     <MESSAGE value="frontend start" />
-    <option name="LAST_COMMIT_MESSAGE" value="frontend start" />
+    <MESSAGE value="add card to deck, added CORS config and also some security" />
+    <option name="LAST_COMMIT_MESSAGE" value="add card to deck, added CORS config and also some security" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flash_cards$Tests_in__backend_test_.ic" NAME="Tests in 'backend.test' Coverage Results" MODIFIED="1775488796148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
