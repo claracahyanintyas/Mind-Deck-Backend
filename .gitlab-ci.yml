@@ -1,32 +1,33 @@
 stages:
-    - build
-    - test
-    - sonarqube
+  - build
+  - test
+  - sonarqube
 
 build:
   stage: build
   script:
     - cd backend
-    - ./gradlew assemble --no-daemon --no-watch-fs
+    - chmod +x gradlew
+    - ./gradlew assemble --no-daemon
 
 test:
   stage: test
   script:
     - cd backend
-    - ./gradlew test jacocoTestReport --no-daemon --no-watch-fs
+    - chmod +x gradlew
+    - ./gradlew test jacocoTestReport --no-daemon
   artifacts:
     paths:
       - backend/build/reports/jacoco/test/jacocoTestReport.xml
 
-
 sonarqube:
   stage: sonarqube
-  image: gradle:8.5-jdk21
   variables:
     SONAR_HOST_URL: "http://localhost:9000"
     SONAR_TOKEN: "$SONAR_TOKEN"
   script:
     - cd backend
+    - chmod +x gradlew
     - ./gradlew sonar
   dependencies:
     - test
