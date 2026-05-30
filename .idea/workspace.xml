@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f57efced-8403-4629-bc47-2e4e4c6f7688" name="Changes" comment="add card to deck, added CORS config and also some security" />
+    <list default="true" id="f57efced-8403-4629-bc47-2e4e4c6f7688" name="Changes" comment="add card to deck, added CORS config and also some security">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,18 +46,20 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Exception" />
         <option value="Enum" />
+        <option value="JUnit5 Test Class" />
+        <option value="Dockerfile" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="JUnit5 Test Class" />
+        <option value="Exception" />
+        <option value="Record" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="feature/cards" />
         <entry key="$PROJECT_DIR$/backend" value="main" />
       </map>
     </option>
@@ -92,67 +97,67 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.AddCardToDeckUseCaseImplTest.shouldAddCardToDeckAndReturnPublicData.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build backend.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CardControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CreateDeckUseCaseImplTest.createDeck_EmptyTitle_shouldThrowException.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CreateDeckUseCaseImplTest.createDeck_withTitle_shouldReturnCorrectDeck.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CreateDeckUseCaseImplTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.D:/kuliah/full stack development/flash-cards/backend.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.D:/kuliah/full stack development/flash-cards/backend/settings.gradle.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.addCardToDeck_EmptyFrontContent_ThrowsException.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.addCardToDeck_InvalidDeckId_ThrowsException.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.createDeck_AllFields_ReturnsDeck.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.createDeck_EmptyName_ThrowsException.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.deleteDeck_ReturnsEmpty.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.getDeck_invalidId_ThrowsException.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.getDeck_notFound_ThrowsException.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.getDeck_validId_returnsDeck.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.updateDeck_AllFields_ReturnsDeck.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.updateDeck_EmptyName_ReturnsDeck.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GetDeckUseCaseImplTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GetDeckUseCaseImplTest.getDeck_deckNotExist_throwsException.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GetDeckUseCaseImplTest.getDeck_validId_returnDeck.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'backend.test'.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UpdateDeckUseCaseImplTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UpdateDeckUseCaseImplTest.updateDeck_deckNotFound_throwsDeckNotFoundException.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UpdateDeckUseCaseImplTest.updateDeck_emptyName_returnsUpdatedDeck.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UpdateDeckUseCaseImplTest.updateDeck_invalidId_throwsException.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UpdateDeckUseCaseImplTest.updateDeck_nameIsEmpty_throwsIllegalArgumentException.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UpdateDeckUseCaseImplTest.updateDeck_properInput_returnsUpdatedDeck.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.backend [:org.individualproject.flashcards.FlashCardsApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DeckControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.FlashCardsApplication.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/cards&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/kuliah/full stack development/flash-cards&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.AddCardToDeckUseCaseImplTest.shouldAddCardToDeckAndReturnPublicData.executor": "Run",
+    "Gradle.Build backend.executor": "Run",
+    "Gradle.CardControllerTest.executor": "Run",
+    "Gradle.CreateDeckUseCaseImplTest.createDeck_EmptyTitle_shouldThrowException.executor": "Run",
+    "Gradle.CreateDeckUseCaseImplTest.createDeck_withTitle_shouldReturnCorrectDeck.executor": "Run",
+    "Gradle.CreateDeckUseCaseImplTest.executor": "Run",
+    "Gradle.D:/kuliah/full stack development/flash-cards/backend.executor": "Run",
+    "Gradle.D:/kuliah/full stack development/flash-cards/backend/settings.gradle.executor": "Run",
+    "Gradle.DeckControllerTest.addCardToDeck_EmptyFrontContent_ThrowsException.executor": "Run",
+    "Gradle.DeckControllerTest.addCardToDeck_InvalidDeckId_ThrowsException.executor": "Run",
+    "Gradle.DeckControllerTest.createDeck_AllFields_ReturnsDeck.executor": "Run",
+    "Gradle.DeckControllerTest.createDeck_EmptyName_ThrowsException.executor": "Run",
+    "Gradle.DeckControllerTest.deleteDeck_ReturnsEmpty.executor": "Run",
+    "Gradle.DeckControllerTest.executor": "Run",
+    "Gradle.DeckControllerTest.getDeck_invalidId_ThrowsException.executor": "Run",
+    "Gradle.DeckControllerTest.getDeck_notFound_ThrowsException.executor": "Run",
+    "Gradle.DeckControllerTest.getDeck_validId_returnsDeck.executor": "Run",
+    "Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks.executor": "Run",
+    "Gradle.DeckControllerTest.updateDeck_AllFields_ReturnsDeck.executor": "Run",
+    "Gradle.DeckControllerTest.updateDeck_EmptyName_ReturnsDeck.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.GetDeckUseCaseImplTest.executor": "Run",
+    "Gradle.GetDeckUseCaseImplTest.getDeck_deckNotExist_throwsException.executor": "Run",
+    "Gradle.GetDeckUseCaseImplTest.getDeck_validId_returnDeck.executor": "Run",
+    "Gradle.Tests in 'backend.test'.executor": "Run",
+    "Gradle.UpdateDeckUseCaseImplTest.executor": "Run",
+    "Gradle.UpdateDeckUseCaseImplTest.updateDeck_deckNotFound_throwsDeckNotFoundException.executor": "Run",
+    "Gradle.UpdateDeckUseCaseImplTest.updateDeck_emptyName_returnsUpdatedDeck.executor": "Run",
+    "Gradle.UpdateDeckUseCaseImplTest.updateDeck_invalidId_throwsException.executor": "Run",
+    "Gradle.UpdateDeckUseCaseImplTest.updateDeck_nameIsEmpty_throwsIllegalArgumentException.executor": "Run",
+    "Gradle.UpdateDeckUseCaseImplTest.updateDeck_properInput_returnsUpdatedDeck.executor": "Run",
+    "Gradle.backend [:org.individualproject.flashcards.FlashCardsApplication.main()].executor": "Run",
+    "JUnit.DeckControllerTest.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.FlashCardsApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "feature/authentication",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/kuliah/full stack development/flash-cards",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -163,7 +168,7 @@
       <recent name="org.individualproject.flashcards.usecase.implementation" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DeckControllerTest.addCardToDeck_EmptyFrontContent_ThrowsException">
+  <component name="RunManager" selected="Spring Boot.FlashCardsApplication">
     <configuration name="FlashCardsApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="envFilePaths">
         <option value="$PROJECT_DIR$/../bas-world-group-3/.env" />
@@ -382,6 +387,7 @@
       <workItem from="1777937321280" duration="7777000" />
       <workItem from="1778506307613" duration="2188000" />
       <workItem from="1778508520407" duration="7178000" />
+      <workItem from="1778877615304" duration="38516000" />
     </task>
     <task id="LOCAL-00001" summary="gitlab ci added">
       <option name="closed" value="true" />
