@@ -52,6 +52,12 @@ dependencies {
 
     runtimeOnly 'com.h2database:h2'
     implementation 'org.flywaydb:flyway-core'
+
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
 }
 
 tasks.named('test') {
@@ -72,10 +78,11 @@ jacoco{
 
 sonar {
     properties {
-        property "sonar.projectKey", "Flash-Cards"
-        property "sonar.projectName", "Flash-Cards"
-        property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.projectKey", "flash-cards-backend"
+        property "sonar.projectName", "Flash Cards Backend"
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.token", System.getenv("SONAR_TOKEN")
+        property "sonar.junit.reportPaths", "build/test-results/test"
         property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
-        property "sonar.qualitygate.wait", "true"
     }
 }

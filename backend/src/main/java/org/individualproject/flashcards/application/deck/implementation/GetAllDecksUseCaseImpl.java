@@ -1,0 +1,42 @@
+package org.individualproject.flashcards.application.deck.implementation;
+
+import lombok.AllArgsConstructor;
+import org.individualproject.flashcards.application.card.DTO.CardPublicData;
+import org.individualproject.flashcards.application.persistence.DeckRepository;
+import org.individualproject.flashcards.domain.deck.Deck;
+import org.individualproject.flashcards.application.deck.DTO.DeckPublicData;
+import org.individualproject.flashcards.application.deck.GetAllDecksUseCase;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+@Service @AllArgsConstructor
+public class GetAllDecksUseCaseImpl implements GetAllDecksUseCase {
+    private DeckRepository deckRepository;
+    public Collection<DeckPublicData> getAllDecks(){
+        var decks = deckRepository.findAll();
+        List<DeckPublicData> deckPublicDataList = new ArrayList<>();
+        for (Deck deck : decks){
+            var cards = deck.getCards()
+                    .stream()
+                    .map(card -> new CardPublicData(
+                            card.getId(),
+                            card.getFrontSide().content(),
+                            card.getFrontSide().contentType(),
+                            card.getBackSide().content(),
+                            card.getBackSide().contentType(),
+                            card.getCreatedAt(),
+                            card.getUpdatedAt()
+                    ))
+                    .toList();
+
+            deckPublicDataList.add(new DeckPublicData(deck.getId(),deck.getName(), deck.getDescription(),
+                    deck.getCreatedAt(), deck.getUpdatedAt(), deck.getIsPrivate(), cards));
+        }
+        return deckPublicDataList;
+    }
+
+
+}
