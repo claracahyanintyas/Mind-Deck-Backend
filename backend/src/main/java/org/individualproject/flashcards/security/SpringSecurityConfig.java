@@ -1,6 +1,5 @@
 package org.individualproject.flashcards.security;
 
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,19 +29,11 @@ public class SpringSecurityConfig {
 
     private final UserDetailsService userDetailsService;
 
-    private final JwtAuthenticationEntryPoint authenticationEntryPoint;
-
-    private final JwtAuthenticationFilter authenticationFilter;
-
     @Value("${app.cors.allowed-origins}")
     private String allowedOrigins; // comma-separated
 
-    public SpringSecurityConfig(UserDetailsService userDetailsService,
-                                JwtAuthenticationEntryPoint authenticationEntryPoint,
-                                JwtAuthenticationFilter authenticationFilter) {
+    public SpringSecurityConfig(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
-        this.authenticationEntryPoint = authenticationEntryPoint;
-        this.authenticationFilter = authenticationFilter;
     }
 
     @Bean
@@ -64,13 +55,18 @@ public class SpringSecurityConfig {
     }
 
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(
+            HttpSecurity http,
+            JwtAuthenticationEntryPoint authenticationEntryPoint, // FIX: Injected directly here
+            JwtAuthenticationFilter authenticationFilter          // FIX: Injected directly here
+    ) throws Exception {
+
         String deckPath = "/api/decks/**";
         String cardPath = "/api/cards/**";
+        String authPath = "/api/auth/**";
 
         http.csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
-                // Disable session creation entirely
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
@@ -82,15 +78,13 @@ public class SpringSecurityConfig {
                     authorize.requestMatchers(HttpMethod.GET, cardPath).permitAll();
                     authorize.requestMatchers(HttpMethod.POST, cardPath).permitAll();
                     authorize.requestMatchers(HttpMethod.DELETE, cardPath).permitAll();
-//                    authorize.requestMatchers(HttpMethod.PUT, userPath).authenticated();
+                    authorize.requestMatchers(HttpMethod.POST, authPath).permitAll();
                     authorize.anyRequest().authenticated();
                 })
                 .exceptionHandling(exception ->
                         exception.authenticationEntryPoint(authenticationEntryPoint)
                 )
-                // Add JWT filter before UsernamePasswordAuthenticationFilter
                 .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
-                // Prevent SecurityContext from creating a session implicitly
                 .securityContext(securityContext ->
                         securityContext.requireExplicitSave(false)
                 );

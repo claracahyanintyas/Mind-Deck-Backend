@@ -32,7 +32,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         return new CustomUserDetails(
                 user.getId(),
-                usernameOrEmail,
+                user.getUsername(),
                 user.getPassword(),
                 authorities
         );

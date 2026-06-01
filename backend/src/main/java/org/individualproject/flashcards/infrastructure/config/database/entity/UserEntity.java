@@ -33,12 +33,10 @@ public class UserEntity {
     @Column(name = "username")
     private String username;
 
-    @NotBlank
     @Size(min = 1 ,max = 255)
     @Column(name = "email")
     private String email;
 
-    @NotBlank
     @Size(min = 1 ,max = 255)
     @Column(name = "password_hash")
     private String passwordHash;
@@ -47,6 +45,10 @@ public class UserEntity {
     @Column(name = "created_at", updatable = false)
     @CreationTimestamp
     private OffsetDateTime createdAt;
+
+    @NotNull
+    @Column(name = "active")
+    private boolean active;
 
     @Builder.Default
     @ManyToMany(fetch = FetchType.EAGER)
