@@ -1,0 +1,23 @@
+package org.individualproject.flashcards.application.card.implementation;
+
+import lombok.AllArgsConstructor;
+import org.individualproject.flashcards.application.card.DeleteCardUseCase;
+import org.individualproject.flashcards.application.persistence.CardRepository;
+import org.springframework.stereotype.Service;
+
+@Service
+@AllArgsConstructor
+public class DeleteCardUseCaseImpl implements DeleteCardUseCase {
+    private CardRepository cardRepository;
+
+    @Override
+    public void deleteCard(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("ID cannot be null");
+        }
+        if (id <= 0){
+            throw new IllegalArgumentException("Invalid ID");
+        }
+        cardRepository.deleteById(id);
+    }
+}

@@ -1,0 +1,22 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  flyway:
+    enabled: false
+
+app:
+  jwt-secret: i|ud=$yI=45Xhg&JS@%swFr>*3joQwvxZ=ACGsm>krd
+  jwt-expiration-milliseconds: 86400000
+  encryption:
+    secret: 8usHJK8hUJD729hu
+  cors:
+    allowed-origins: http://localhost:5173,http://localhost:3000
