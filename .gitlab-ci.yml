@@ -36,10 +36,12 @@ sonarqube:
 
 build-and-push-docker-image:
   stage: package
+  before_script:
+    - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
   script:
     - cd backend
-    - sudo docker build -t flashcards-backend:latest .
-    - sudo docker push flashcards-backend:latest
+    - sudo docker build -t claracahyanintyas/flashcards-backend:latest .
+    - sudo docker push claracahyanintyas/flashcards-backend:latest
   only:
     - main
 

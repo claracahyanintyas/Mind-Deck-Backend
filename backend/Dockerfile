@@ -3,10 +3,8 @@ FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 COPY . .
 
-# Force executable permissions on the Gradle wrapper script
 RUN chmod +x gradlew
 
-# This will now pass smoothly because the toolchain matches!
 RUN ./gradlew bootJar
 
 # STAGE 2: Run the application using JRE 21 (much smaller file size)
