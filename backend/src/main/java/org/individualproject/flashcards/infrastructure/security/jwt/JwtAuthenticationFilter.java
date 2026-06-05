@@ -1,4 +1,4 @@
-package org.individualproject.flashcards.security;
+package org.individualproject.flashcards.infrastructure.security.jwt;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

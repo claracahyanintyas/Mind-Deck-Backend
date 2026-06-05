@@ -1,5 +1,7 @@
-package org.individualproject.flashcards.security;
+package org.individualproject.flashcards.infrastructure.security;
 
+import org.individualproject.flashcards.infrastructure.security.jwt.JwtAuthenticationEntryPoint;
+import org.individualproject.flashcards.infrastructure.security.jwt.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -64,6 +66,7 @@ public class SpringSecurityConfig {
         String deckPath = "/api/decks/**";
         String cardPath = "/api/cards/**";
         String authPath = "/api/auth/**";
+        String userPath = "/api/users/**";
 
         http.csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
@@ -79,6 +82,7 @@ public class SpringSecurityConfig {
                     authorize.requestMatchers(HttpMethod.POST, cardPath).permitAll();
                     authorize.requestMatchers(HttpMethod.DELETE, cardPath).permitAll();
                     authorize.requestMatchers(HttpMethod.POST, authPath).permitAll();
+                    authorize.requestMatchers(HttpMethod.GET, userPath).permitAll();
                     authorize.anyRequest().authenticated();
                 })
                 .exceptionHandling(exception ->

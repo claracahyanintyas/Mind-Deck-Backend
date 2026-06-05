@@ -1,9 +1,10 @@
-package org.individualproject.flashcards.security;
+package org.individualproject.flashcards.infrastructure.security.jwt;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseCookie;
 import org.springframework.security.core.Authentication;
@@ -23,6 +24,9 @@ public class JwtTokenProvider {
 
     @Value("${app.jwt-expiration-milliseconds}")
     private long jwtExpirationDate;
+
+    @Getter @Value("${app.refresh-expiration-ms}")
+    private long refreshExpirationMs;   // 7 days
 
     // FIX: Define a consistent name for your cookie instead of using the secret
     private static final String COOKIE_NAME = "jwt_token";
@@ -98,5 +102,47 @@ public class JwtTokenProvider {
             System.out.println("❌ Invalid JWT: " + ex.getMessage());
             return false;
         }
+    }
+
+    // Drop short-lived access cookie envelope
+    public ResponseCookie generateAccessCookie(String jwtToken) {
+        return ResponseCookie.from("jwt_access_token", jwtToken)
+                .path("/api")
+                .maxAge(jwtExpirationDate / 1000)
+                .httpOnly(true)
+                .secure(true) // Set to false ONLY if testing without local HTTPS proxy
+                .sameSite("Strict")
+                .build();
+    }
+
+    // Drop long-lived refresh cookie envelope (Scoped strictly to your refresh path!)
+    public ResponseCookie generateRefreshCookie(String refreshTokenStr) {
+        return ResponseCookie.from("jwt_refresh_token", refreshTokenStr)
+                .path("/api/auth/refresh")
+                .maxAge(refreshExpirationMs / 1000)
+                .httpOnly(true)
+                .secure(true)
+                .sameSite("Strict")
+                .build();
+    }
+
+    // Read cookie values cleanly from incoming headers
+    public String getCookieValue(HttpServletRequest request, String cookieName) {
+        if (request.getCookies() == null) return null;
+        for (Cookie cookie : request.getCookies()) {
+            if (cookie.getName().equals(cookieName)) {
+                return cookie.getValue();
+            }
+        }
+        return null;
+    }
+
+    // Expiry cleanup utility
+    public ResponseCookie getCleanCookie(String cookieName, String path) {
+        return ResponseCookie.from(cookieName, "")
+                .path(path)
+                .maxAge(0)
+                .httpOnly(true)
+                .build();
     }
 }

@@ -5,6 +5,7 @@ import org.individualproject.flashcards.application.user.DTO.UserPublicData;
 
 public record jwtAuthOutput(
         String token,
+        String refreshToken,
         UserPublicData user
 ) {
 }

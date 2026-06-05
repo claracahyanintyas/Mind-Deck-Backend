@@ -3,7 +3,7 @@ package org.individualproject.flashcards.application.security;
 import lombok.AllArgsConstructor;
 import org.individualproject.flashcards.application.persistence.UserRepository;
 import org.individualproject.flashcards.domain.user.User;
-import org.individualproject.flashcards.security.CustomUserDetails;
+import org.individualproject.flashcards.infrastructure.security.CustomUserDetails;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-package org.individualproject.flashcards.security;
+package org.individualproject.flashcards.infrastructure.security;
 
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;

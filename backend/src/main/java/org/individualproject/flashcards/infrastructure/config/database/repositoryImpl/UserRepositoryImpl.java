@@ -28,4 +28,13 @@ public class UserRepositoryImpl implements UserRepository {
     public boolean existsByUsername(String username) {
         return userJpaRepository.existsByUsername(username);
     }
+
+    @Override
+    public Optional<User> findByUsername(String username) {
+        return userJpaRepository.findByUsername(username).map(UserEntityMapper::fromEntity);
+    }
+    @Override
+    public Optional<User> findByRefreshToken(String refreshToken) {
+        return userJpaRepository.findByRefreshToken(refreshToken).map(UserEntityMapper::fromEntity);
+    }
 }
