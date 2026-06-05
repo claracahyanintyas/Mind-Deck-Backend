@@ -43,7 +43,7 @@ build-and-push-docker-image:
     - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
   script:
     - cd backend
-    - docker build -t claracahyanintyas/flashcards-backend:latest ./backend
+    - docker build -t claracahyanintyas/flashcards-backend:latest ../flash-cards
     - docker push claracahyanintyas/flashcards-backend:latest
   only:
     - main
