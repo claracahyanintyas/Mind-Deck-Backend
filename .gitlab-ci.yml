@@ -38,8 +38,8 @@ build-and-push-docker-image:
   stage: package
   script:
     - cd backend
-    - docker build -t flashcards-backend:latest .
-    - docker push flashcards-backend:latest
+    - sudo docker build -t flashcards-backend:latest .
+    - sudo docker push flashcards-backend:latest
   only:
     - main
 
