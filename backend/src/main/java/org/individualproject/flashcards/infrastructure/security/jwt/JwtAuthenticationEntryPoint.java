@@ -1,4 +1,4 @@
-package org.individualproject.flashcards.security;
+package org.individualproject.flashcards.infrastructure.security.jwt;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

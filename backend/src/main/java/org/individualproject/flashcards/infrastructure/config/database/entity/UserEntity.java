@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -59,5 +60,10 @@ public class UserEntity {
     )
     private Set<RoleEntity> roles = new HashSet<>();
 
+    @Column(name = "refresh_token", unique = true)
+    private String refreshToken;
+
+    @Column(name = "refresh_token_expiry_date")
+    private Instant refreshTokenExpiryDate;
 
 }

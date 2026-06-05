@@ -16,6 +16,8 @@ public class UserEntityMapper {
                 .createdAt(user.getCreatedAt())
                 .roles(user.getRoles() == null ? new HashSet<>() :
                         user.getRoles().stream().map(RoleEntityMapper::toEntity).collect(Collectors.toSet()))
+                .refreshToken(user.getRefreshToken())
+                .refreshTokenExpiryDate(user.getRefreshTokenExpiryDate())
                 .build();
     }
 
@@ -28,6 +30,8 @@ public class UserEntityMapper {
                 .createdAt(userEntity.getCreatedAt())
                 .roles(userEntity.getRoles() == null ? new HashSet<>() :
                         userEntity.getRoles().stream().map(RoleEntityMapper::fromEntity).collect(Collectors.toSet()))
+                .refreshToken(userEntity.getRefreshToken())
+                .refreshTokenExpiryDate(userEntity.getRefreshTokenExpiryDate())
                 .build();
     }
 }

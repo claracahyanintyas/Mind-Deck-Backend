@@ -15,7 +15,8 @@ spring:
 
 app:
   jwt-secret: i|ud=$yI=45Xhg&JS@%swFr>*3joQwvxZ=ACGsm>krd
-  jwt-expiration-milliseconds: 86400000
+  jwt-expiration-milliseconds: 900000
+  refresh-expiration-ms: 604800000
   encryption:
     secret: 8usHJK8hUJD729hu
   cors:
