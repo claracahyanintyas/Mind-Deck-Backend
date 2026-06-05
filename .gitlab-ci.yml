@@ -2,6 +2,7 @@ stages:
   - build
   - test
   - sonarqube
+  - trigger-infra
 
 build:
   stage: build
@@ -23,7 +24,7 @@ test:
 sonarqube:
   stage: sonarqube
   variables:
-    SONAR_HOST_URL: "http://localhost:9000"
+    SONAR_HOST_URL: "http://145.220.72.104:9000"
     SONAR_TOKEN: "$SONAR_TOKEN"
   script:
     - cd backend
@@ -31,3 +32,15 @@ sonarqube:
     - ./gradlew sonar
   dependencies:
     - test
+
+trigger-infra-docker:
+  stage: trigger-infra
+  trigger:
+    project: I545577/flash-cards-infra
+    branch: main
+    strategy: depend
+    variables:
+      TRIGGERED_BY: "backend"
+      APP_COMMIT_SHA: $CI_COMMIT_SHA
+  only:
+    - main
