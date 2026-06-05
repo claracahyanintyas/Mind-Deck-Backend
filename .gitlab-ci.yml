@@ -39,8 +39,8 @@ trigger-infra-docker:
     project: I545577/flash-cards-infra
     branch: main
     strategy: depend
-    variables:
-      TRIGGERED_BY: "backend"
-      APP_COMMIT_SHA: $CI_COMMIT_SHA
+  variables:
+    TRIGGERED_BY: "backend"
+    APP_COMMIT_SHA: $CI_COMMIT_SHA
   only:
     - main
