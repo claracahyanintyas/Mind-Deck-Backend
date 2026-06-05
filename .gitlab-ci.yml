@@ -2,6 +2,7 @@ stages:
   - build
   - test
   - sonarqube
+  - package
   - trigger-infra
 
 build:
@@ -32,6 +33,20 @@ sonarqube:
     - ./gradlew sonar
   dependencies:
     - test
+
+build-and-push-docker-image:
+  stage: package
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  before_script:
+    - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
+  script:
+    - cd backend
+    - docker build -t claracahyanintyas/flashcards-backend:latest
+    - docker push claracahyanintyas/flashcards-backend:latest
+  only:
+    - main
 
 trigger-infra-docker:
   stage: trigger-infra
