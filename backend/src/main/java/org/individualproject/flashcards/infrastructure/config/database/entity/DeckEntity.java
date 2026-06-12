@@ -50,6 +50,10 @@ public class DeckEntity {
     @Column(name = "is_private")
     private boolean isPrivate;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "created_by", nullable = false)
+    private UserEntity createdBy;
+
     @OneToMany(
             mappedBy = "deck",
             cascade = CascadeType.ALL,

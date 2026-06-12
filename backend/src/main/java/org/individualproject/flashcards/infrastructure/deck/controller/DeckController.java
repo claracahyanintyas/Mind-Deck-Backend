@@ -13,6 +13,8 @@ import org.individualproject.flashcards.infrastructure.deck.DTO.UpdateDeckReques
 import org.individualproject.flashcards.application.deck.DTO.UpdateDeckCommand;
 import org.individualproject.flashcards.application.deck.*;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -31,13 +33,15 @@ public class DeckController {
     @PostMapping()
     public ResponseEntity<DeckPublicData> createDeck(@Valid @RequestBody CreateDeckRequest request) {
         var command = new CreateDeckCommand(request.name(), request.description(), request.isPrivate());
-        var result = createDeckUseCase.createDeck(command);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        var result = createDeckUseCase.createDeck(command, authentication.getName());
         return ResponseEntity.ok().body(result);
     }
     @PutMapping("/{id}")
     public ResponseEntity<DeckPublicData> updateDeck(@PathVariable Long id ,@Valid @RequestBody UpdateDeckRequest request) {
         var command = new UpdateDeckCommand(request.name(), request.description(), request.isPrivate());
-        var result = updateDeckUseCase.updateDeck(id, command);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        var result = updateDeckUseCase.updateDeck(id, command, authentication.getName());
         return ResponseEntity.ok().body(result);
     }
     @GetMapping()
@@ -58,7 +62,8 @@ public class DeckController {
     @PostMapping("/{id}/cards")
     public ResponseEntity<CardPublicData> addCardToDeck(@PathVariable Long id, @Valid @RequestBody AddCardRequest request) {
         var command = new AddCardCommand(id, request.frontContent(), request.frontContentType(), request.backContent(), request.backContentType());
-        var result = addCardToDeckUseCase.addCardToDeck(command);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        var result = addCardToDeckUseCase.addCardToDeck(command, authentication.getName());
         return ResponseEntity.ok().body(result);
     }
 }

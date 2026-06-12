@@ -1,5 +1,6 @@
 package org.individualproject.flashcards.infrastructure.config.database.mapper;
 
+import org.apache.catalina.User;
 import org.individualproject.flashcards.domain.deck.Deck;
 import org.individualproject.flashcards.infrastructure.config.database.entity.CardEntity;
 import org.individualproject.flashcards.infrastructure.config.database.entity.DeckEntity;
@@ -18,6 +19,7 @@ public class DeckEntityMapper {
                 .createdAt(deck.getCreatedAt())
                 .updatedAt(deck.getUpdatedAt())
                 .isPrivate(deck.getIsPrivate())
+                .createdBy(UserEntityMapper.toEntity(deck.getCreatedBy()))
                 .cards(new ArrayList<>())
                 .build();
 
@@ -33,6 +35,7 @@ public class DeckEntityMapper {
     }
     public static Deck fromEntity(DeckEntity entity){
         return new Deck(entity.getId(), entity.getName(), entity.getDescription(), entity.getCreatedAt(),entity.getUpdatedAt(),
-                entity.isPrivate(), entity.getCards().stream().map(CardEntityMapper::fromEntity).collect(Collectors.toList()));
+                entity.isPrivate(), UserEntityMapper.fromEntity(entity.getCreatedBy()),
+                entity.getCards().stream().map(CardEntityMapper::fromEntity).collect(Collectors.toList()));
     }
 }
