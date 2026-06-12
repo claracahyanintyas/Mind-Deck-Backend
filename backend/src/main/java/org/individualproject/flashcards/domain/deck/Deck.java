@@ -17,7 +17,7 @@ public class Deck {
     private final OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
     private Boolean isPrivate;
-    private User createdBy;
+    private final User createdBy;
 
     private List<Card> cards =  new ArrayList<>();
 
