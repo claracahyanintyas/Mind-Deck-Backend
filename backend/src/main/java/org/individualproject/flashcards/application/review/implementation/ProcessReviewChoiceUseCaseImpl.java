@@ -6,13 +6,11 @@ import org.individualproject.flashcards.application.persistence.ReviewRepository
 import org.individualproject.flashcards.application.review.DTO.ProgressOutput;
 import org.individualproject.flashcards.application.review.ProcessReviewChoiceUseCase;
 import org.individualproject.flashcards.application.review.mapper.ReviewCardDTOMapper;
-import org.individualproject.flashcards.domain.review.CardState;
 import org.individualproject.flashcards.domain.review.Review;
 import org.individualproject.flashcards.domain.review.ReviewCard;
 import org.individualproject.flashcards.domain.review.ReviewChoice;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
 import java.util.UUID;
 
 @Service @AllArgsConstructor

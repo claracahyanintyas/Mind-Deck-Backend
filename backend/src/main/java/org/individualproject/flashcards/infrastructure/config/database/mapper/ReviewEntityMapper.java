@@ -1,16 +1,12 @@
 package org.individualproject.flashcards.infrastructure.config.database.mapper;
 
 import org.individualproject.flashcards.domain.card.Card;
-import org.individualproject.flashcards.domain.deck.Deck;
 import org.individualproject.flashcards.domain.review.Review;
 import org.individualproject.flashcards.domain.review.ReviewCard;
-import org.individualproject.flashcards.domain.user.User;
-import org.individualproject.flashcards.infrastructure.config.database.entity.CardEntity;
 import org.individualproject.flashcards.infrastructure.config.database.entity.ReviewCardEntity;
 import org.individualproject.flashcards.infrastructure.config.database.entity.ReviewEntity;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 

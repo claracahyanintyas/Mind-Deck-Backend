@@ -8,7 +8,6 @@ import org.individualproject.flashcards.application.deck.AddCardToDeckUseCase;
 import org.individualproject.flashcards.application.card.DTO.AddCardCommand;
 import org.individualproject.flashcards.application.card.DTO.CardPublicData;
 import org.individualproject.flashcards.application.exception.DeckNotFoundException;
-import org.individualproject.flashcards.domain.card.ContentType;
 import org.individualproject.flashcards.domain.deck.Deck;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,6 @@
 package org.individualproject.flashcards.domain.deck;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 import org.individualproject.flashcards.domain.card.Card;
 import org.individualproject.flashcards.domain.exception.UnauthorizedActionException;
 import org.individualproject.flashcards.domain.user.User;

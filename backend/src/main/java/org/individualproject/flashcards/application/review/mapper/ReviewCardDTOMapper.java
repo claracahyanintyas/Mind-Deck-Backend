@@ -1,6 +1,5 @@
 package org.individualproject.flashcards.application.review.mapper;
 
-import org.individualproject.flashcards.application.card.DTO.CardPublicData;
 import org.individualproject.flashcards.application.card.mapper.CardDTOMapper;
 import org.individualproject.flashcards.application.review.DTO.ReviewCardPublicData;
 import org.individualproject.flashcards.domain.review.ReviewCard;

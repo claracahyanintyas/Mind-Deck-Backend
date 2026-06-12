@@ -6,7 +6,6 @@ import org.individualproject.flashcards.application.card.DTO.EditCardCommand;
 import org.individualproject.flashcards.application.card.DeleteCardUseCase;
 import org.individualproject.flashcards.application.card.EditCardUseCase;
 import org.individualproject.flashcards.application.card.GetCardByIdUseCase;
-import org.individualproject.flashcards.domain.card.Card;
 import org.individualproject.flashcards.infrastructure.card.DTO.EditCardRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

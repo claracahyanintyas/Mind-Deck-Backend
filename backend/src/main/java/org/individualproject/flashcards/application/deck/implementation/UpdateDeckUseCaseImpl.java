@@ -1,7 +1,6 @@
 package org.individualproject.flashcards.application.deck.implementation;
 
 import lombok.AllArgsConstructor;
-import org.individualproject.flashcards.application.card.DTO.CardPublicData;
 import org.individualproject.flashcards.application.deck.mapper.DeckDTOMapper;
 import org.individualproject.flashcards.application.persistence.DeckRepository;
 import org.individualproject.flashcards.application.deck.DTO.DeckPublicData;
