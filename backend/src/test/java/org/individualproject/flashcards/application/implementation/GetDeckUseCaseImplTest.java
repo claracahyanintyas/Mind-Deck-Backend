@@ -2,6 +2,7 @@ package org.individualproject.flashcards.application.implementation;
 
 import org.individualproject.flashcards.application.persistence.DeckRepository;
 import org.individualproject.flashcards.domain.deck.Deck;
+import org.individualproject.flashcards.domain.user.User;
 import org.individualproject.flashcards.infrastructure.config.database.entity.DeckEntity;
 import org.individualproject.flashcards.infrastructure.config.database.JpaRepository.DeckJpaRepository;
 import org.individualproject.flashcards.application.deck.implementation.GetDeckUseCaseImpl;
@@ -31,7 +32,8 @@ class GetDeckUseCaseImplTest {
     @Test
     void getDeck_validId_returnDeck() {
         var id = 1L;
-        var deckEntity = new Deck(1L, "name", "desc", OffsetDateTime.now(), OffsetDateTime.now(), true, new ArrayList<>());
+        var user = new User("guest");
+        var deckEntity = new Deck(1L, "name", "desc", OffsetDateTime.now(), OffsetDateTime.now(), true, user, new ArrayList<>());
 
         when(deckRepository.findById(1L)).thenReturn(Optional.of(deckEntity));
 

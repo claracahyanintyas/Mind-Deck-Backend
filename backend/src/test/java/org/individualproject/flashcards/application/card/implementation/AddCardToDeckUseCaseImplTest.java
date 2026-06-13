@@ -9,6 +9,7 @@ import org.individualproject.flashcards.domain.card.Card;
 import org.individualproject.flashcards.domain.card.CardSide;
 import org.individualproject.flashcards.domain.card.ContentType;
 import org.individualproject.flashcards.domain.deck.Deck;
+import org.individualproject.flashcards.domain.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -38,6 +39,7 @@ class AddCardToDeckUseCaseImplTest {
     void shouldAddCardToDeckAndReturnPublicData() {
         // Arrange
         Long deckId = 1L;
+        User user = new User("username");
 
         Deck deck = new Deck(
                 deckId,
@@ -46,6 +48,7 @@ class AddCardToDeckUseCaseImplTest {
                 OffsetDateTime.now(),
                 OffsetDateTime.now(),
                 false,
+                user,
                 new ArrayList<>()
         );
 
@@ -79,12 +82,13 @@ class AddCardToDeckUseCaseImplTest {
                     inputDeck.getCreatedAt(),
                     inputDeck.getUpdatedAt(),
                     inputDeck.getIsPrivate(),
+                    inputDeck.getCreatedBy(),
                     List.of(savedCard)
             );
         });
 
         // Act
-        CardPublicData result = useCase.addCardToDeck(command);
+        CardPublicData result = useCase.addCardToDeck(command, "username");
 
         // Assert
         assertThat(result).isNotNull();
@@ -105,7 +109,7 @@ class AddCardToDeckUseCaseImplTest {
                 ContentType.PLAIN_TEXT
         );
 
-        assertThatThrownBy(() -> useCase.addCardToDeck(command))
+        assertThatThrownBy(() -> useCase.addCardToDeck(command, "guest"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Deck ID is required");
 
@@ -125,7 +129,7 @@ class AddCardToDeckUseCaseImplTest {
 
         when(deckRepository.findById(deckId)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> useCase.addCardToDeck(command))
+        assertThatThrownBy(() -> useCase.addCardToDeck(command, "guest"))
                 .isInstanceOf(DeckNotFoundException.class);
 
         verify(deckRepository).findById(deckId);
