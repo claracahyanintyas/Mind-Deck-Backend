@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="676cb466-c7a2-4067-97fb-8ad92c9f4d23" name="Changes" comment="ci yml change">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="676cb466-c7a2-4067-97fb-8ad92c9f4d23" name="Changes" comment="review and edit card">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/card/implementation/AddCardToDeckUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/card/implementation/AddCardToDeckUseCaseImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/implementation/CreateDeckUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/implementation/CreateDeckUseCaseImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/implementation/GetDeckUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/implementation/GetDeckUseCaseImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/implementation/UpdateDeckUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/implementation/UpdateDeckUseCaseImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/card/CardControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/card/CardControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/deck/controller/DeckControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/deck/controller/DeckControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +41,17 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="backend" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="backend" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="backend" type="f1a62948:ProjectNode" />
                 <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
@@ -42,6 +60,16 @@
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Exception" />
+        <option value="Interface" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,6 +90,9 @@
     &quot;second&quot;: &quot;d209e2b7-a8dd-48d9-9946-8e6387cd68cc&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -70,34 +101,133 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.FlashCardsApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/kuliah/full stack development/flash-cards&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build backend.executor": "Run",
+    "Gradle.CardControllerTest.deleteCard_ReturnsNoContent.executor": "Run",
+    "Gradle.DeckControllerTest.executor": "Run",
+    "Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks.executor": "Run",
+    "Gradle.Tests in 'backend.test'.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.FlashCardsApplication.executor": "Run",
+    "git-widget-placeholder": "feature/progress-and-review",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/kuliah/full stack development/flash-cards",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\kuliah\full stack development\flash-cards\backend" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks">
+    <configuration name="CardControllerTest.deleteCard_ReturnsNoContent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.individualproject.flashcards.infrastructure.card.CardControllerTest.deleteCard_ReturnsNoContent&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="DeckControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.individualproject.flashcards.infrastructure.deck.controller.DeckControllerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="DeckControllerTest.getDecks_availableDecks_returnsDecks" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.individualproject.flashcards.infrastructure.deck.controller.DeckControllerTest.getDecks_availableDecks_returnsDecks&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'backend.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="FlashCardsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="envFilePaths">
         <option value="$PROJECT_DIR$/.env" />
@@ -112,6 +242,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks" />
+        <item itemvalue="Gradle.DeckControllerTest" />
+        <item itemvalue="Gradle.Tests in 'backend.test'" />
+        <item itemvalue="Gradle.CardControllerTest.deleteCard_ReturnsNoContent" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -128,6 +266,11 @@
       <option name="presentableId" value="Default" />
       <updated>1780683217448</updated>
       <workItem from="1780683218649" duration="10018000" />
+      <workItem from="1780865377403" duration="1564000" />
+      <workItem from="1780993369673" duration="2223000" />
+      <workItem from="1781171216989" duration="27806000" />
+      <workItem from="1781308331530" duration="1801000" />
+      <workItem from="1781310154058" duration="454000" />
     </task>
     <task id="LOCAL-00001" summary="ci">
       <option name="closed" value="true" />
@@ -241,11 +384,54 @@
       <option name="project" value="LOCAL" />
       <updated>1780687700478</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="spring security config change">
+      <option name="closed" value="true" />
+      <created>1780865721302</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1780865721302</updated>
+    </task>
+    <task id="LOCAL-00016" summary="review and edit card">
+      <option name="closed" value="true" />
+      <created>1781308396900</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1781308396900</updated>
+    </task>
+    <task id="LOCAL-00017" summary="review and edit card">
+      <option name="closed" value="true" />
+      <created>1781308498286</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1781308498286</updated>
+    </task>
+    <task id="LOCAL-00018" summary="review and edit card">
+      <option name="closed" value="true" />
+      <created>1781308524041</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1781308524042</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ci" />
@@ -255,6 +441,19 @@
     <MESSAGE value="dockerfile java 21" />
     <MESSAGE value="dockerfile change, ci yml change" />
     <MESSAGE value="ci yml change" />
-    <option name="LAST_COMMIT_MESSAGE" value="ci yml change" />
+    <MESSAGE value="spring security config change" />
+    <MESSAGE value="review and edit card" />
+    <option name="LAST_COMMIT_MESSAGE" value="review and edit card" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/deck/controller/DeckControllerTest.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -2,9 +2,12 @@ package org.individualproject.flashcards.infrastructure.deck.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
+import org.antlr.v4.runtime.misc.Array2DHashSet;
 import org.individualproject.flashcards.domain.card.ContentType;
+import org.individualproject.flashcards.infrastructure.config.database.JpaRepository.UserJpaRepository;
 import org.individualproject.flashcards.infrastructure.config.database.entity.DeckEntity;
 import org.individualproject.flashcards.infrastructure.config.database.JpaRepository.DeckJpaRepository;
+import org.individualproject.flashcards.infrastructure.config.database.entity.UserEntity;
 import org.individualproject.flashcards.infrastructure.deck.DTO.AddCardRequest;
 import org.individualproject.flashcards.infrastructure.deck.DTO.CreateDeckRequest;
 import org.individualproject.flashcards.infrastructure.deck.DTO.UpdateDeckRequest;
@@ -15,6 +18,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 
+import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 
@@ -22,6 +26,7 @@ import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import org.springframework.security.test.context.support.WithMockUser;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -36,10 +41,26 @@ class DeckControllerTest {
     @Autowired
     private DeckJpaRepository deckRepository;
 
+    @Autowired
+    private UserJpaRepository userRepository;
+
     private final String baseUrl = "/api/decks";
 
     @Test
+    @WithMockUser(username = "guest")
     void createDeck_AllFields_ReturnsDeck() throws Exception {
+        var user = new UserEntity(
+                1L,
+                "guest",
+                "",
+                "",
+                OffsetDateTime.now(),
+                false,
+                new Array2DHashSet<>(),
+                "",
+                Instant.now()
+        );
+        var savedUser = userRepository.save(user);
         var name = "deck";
         var description = "description";
         var isPrivate = true;
@@ -54,7 +75,20 @@ class DeckControllerTest {
                 .andExpect(jsonPath("$.description").value(description));
     }
     @Test
+    @WithMockUser(username = "guest")
     void createDeck_EmptyName_ThrowsException() throws Exception {
+        var user = new UserEntity(
+                1L,
+                "guest",
+                "",
+                "",
+                OffsetDateTime.now(),
+                false,
+                new Array2DHashSet<>(),
+                "",
+                Instant.now()
+        );
+        var savedUser = userRepository.save(user);
         var name = "";
         var description = "description";
         var isPrivate = true;
@@ -69,10 +103,22 @@ class DeckControllerTest {
     }
     @Test
     void getDeck_validId_returnsDeck() throws Exception {
+        var user = new UserEntity(
+                1L,
+                "guest",
+                "",
+                "",
+                OffsetDateTime.now(),
+                false,
+                new Array2DHashSet<>(),
+                "",
+                Instant.now()
+        );
+        var savedUser = userRepository.save(user);
         var name = "name";
         var description = "description";
         var isPrivate = true;
-        var entity = new DeckEntity(1L, name, description, OffsetDateTime.now(), OffsetDateTime.now(), isPrivate, new ArrayList<>());
+        var entity = new DeckEntity(1L, name, description, OffsetDateTime.now(), OffsetDateTime.now(), isPrivate, savedUser, new ArrayList<>());
         var saved = deckRepository.save(entity);
 
         mockMvc.perform(get(baseUrl + '/' + saved.getId()))
@@ -93,9 +139,21 @@ class DeckControllerTest {
     }
     @Test
     void getDecks_availableDecks_returnsDecks() throws Exception {
-        var entity = new DeckEntity(1L, "name", "description", OffsetDateTime.now(), OffsetDateTime.now(), false, new ArrayList<>());
+        var user = new UserEntity(
+                1L,
+                "guest",
+                "",
+                "",
+                OffsetDateTime.now(),
+                false,
+                new Array2DHashSet<>(),
+                "",
+                Instant.now()
+        );
+        var savedUser = userRepository.save(user);
+        var entity = new DeckEntity(null, "name", "description", OffsetDateTime.now(), OffsetDateTime.now(), false, savedUser, new ArrayList<>());
         deckRepository.save(entity);
-        var entity2 = new DeckEntity(2L,  "name2", "description2", OffsetDateTime.now(), OffsetDateTime.now(), false, new ArrayList<>());
+        var entity2 = new DeckEntity(null,  "name2", "description2", OffsetDateTime.now(), OffsetDateTime.now(), false, savedUser, new ArrayList<>());
         deckRepository.save(entity2);
 
         mockMvc.perform(get(baseUrl))
@@ -105,8 +163,21 @@ class DeckControllerTest {
                 .andExpect(jsonPath("$[0].name").value(entity.getName()));
     }
     @Test
+    @WithMockUser(username = "guest")
     void updateDeck_AllFields_ReturnsDeck() throws Exception {
-        var entity = new DeckEntity(1L, "name", "description", OffsetDateTime.now(), OffsetDateTime.now(), true, new ArrayList<>());
+        var user = new UserEntity(
+                1L,
+                "guest",
+                "",
+                "",
+                OffsetDateTime.now(),
+                false,
+                new Array2DHashSet<>(),
+                "",
+                Instant.now()
+        );
+        var savedUser = userRepository.save(user);
+        var entity = new DeckEntity(1L, "name", "description", OffsetDateTime.now(), OffsetDateTime.now(), true, savedUser, new ArrayList<>());
         deckRepository.save(entity);
         var name = "new name";
         var description = "new description";
@@ -122,8 +193,21 @@ class DeckControllerTest {
                 .andExpect(jsonPath("$.description").value(description));
     }
     @Test
+    @WithMockUser(username = "guest")
     void updateDeck_EmptyName_ReturnsDeck() throws Exception {
-        var entity = new DeckEntity(1L, "name", "description", OffsetDateTime.now(), OffsetDateTime.now(), true, new ArrayList<>());
+        var user = new UserEntity(
+                1L,
+                "guest",
+                "",
+                "",
+                OffsetDateTime.now(),
+                false,
+                new Array2DHashSet<>(),
+                "",
+                Instant.now()
+        );
+        var savedUser = userRepository.save(user);
+        var entity = new DeckEntity(1L, "name", "description", OffsetDateTime.now(), OffsetDateTime.now(), true, savedUser, new ArrayList<>());
         deckRepository.save(entity);
         var name = "";
         var description = "new description";
@@ -137,13 +221,38 @@ class DeckControllerTest {
     }
     @Test
     void deleteDeck_ReturnsEmpty() throws Exception {
-        var entity = new DeckEntity(1L, "name", "description", OffsetDateTime.now(), OffsetDateTime.now(), true, new ArrayList<>());
+        var user = new UserEntity(
+                1L,
+                "guest",
+                "",
+                "",
+                OffsetDateTime.now(),
+                false,
+                new Array2DHashSet<>(),
+                "",
+                Instant.now()
+        );
+        var savedUser = userRepository.save(user);
+        var entity = new DeckEntity(1L, "name", "description", OffsetDateTime.now(), OffsetDateTime.now(), true, savedUser, new ArrayList<>());
         deckRepository.save(entity);
         mockMvc.perform(delete(baseUrl + "/" + entity.getId()))
                 .andExpect(status().isNoContent());
     }
     @Test
+    @WithMockUser(username = "guest")
     void addCardToDeck_AllFields_ReturnsCard() throws Exception {
+        var user = new UserEntity(
+                1L,
+                "guest",
+                "",
+                "",
+                OffsetDateTime.now(),
+                false,
+                new Array2DHashSet<>(),
+                "",
+                Instant.now()
+        );
+        var savedUser = userRepository.save(user);
         var deck = new DeckEntity(
                 1L,
                 "deck",
@@ -151,6 +260,7 @@ class DeckControllerTest {
                 OffsetDateTime.now(),
                 OffsetDateTime.now(),
                 false,
+                savedUser,
                 new ArrayList<>()
         );
 
@@ -204,6 +314,18 @@ class DeckControllerTest {
 
     @Test
     void addCardToDeck_EmptyFrontContent_ThrowsException() throws Exception {
+        var user = new UserEntity(
+                1L,
+                "guest",
+                "",
+                "",
+                OffsetDateTime.now(),
+                false,
+                new Array2DHashSet<>(),
+                "",
+                Instant.now()
+        );
+        var savedUser = userRepository.save(user);
         var deck = new DeckEntity(
                 1L,
                 "deck",
@@ -211,6 +333,7 @@ class DeckControllerTest {
                 OffsetDateTime.now(),
                 OffsetDateTime.now(),
                 false,
+                savedUser,
                 new ArrayList<>()
         );
 

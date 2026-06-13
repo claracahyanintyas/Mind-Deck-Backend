@@ -8,7 +8,6 @@ import org.individualproject.flashcards.application.deck.AddCardToDeckUseCase;
 import org.individualproject.flashcards.application.card.DTO.AddCardCommand;
 import org.individualproject.flashcards.application.card.DTO.CardPublicData;
 import org.individualproject.flashcards.application.exception.DeckNotFoundException;
-import org.individualproject.flashcards.domain.card.ContentType;
 import org.individualproject.flashcards.domain.deck.Deck;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +16,7 @@ import java.util.Comparator;
 @Service @AllArgsConstructor
 public class AddCardToDeckUseCaseImpl implements AddCardToDeckUseCase {
     private final DeckRepository deckRepository;
-    public CardPublicData addCardToDeck(AddCardCommand command) {
+    public CardPublicData addCardToDeck(AddCardCommand command, String username) {
         if (command.deckId() == null) {
             throw new IllegalArgumentException("Deck ID is required");
         }
@@ -28,7 +27,7 @@ public class AddCardToDeckUseCaseImpl implements AddCardToDeckUseCase {
         CardSide front = new CardSide(command.frontContent(),  command.frontContentType());
         CardSide back = new CardSide(command.backContent(),  command.backContentType());
         Card newCard = new Card(front, back);
-        deck.addCard(newCard);
+        deck.addCard(newCard, username);
         Deck savedDeck = deckRepository.saveAndFlush(deck);
         Card savedCard = savedDeck.getCards().stream()
                 .filter(c -> c.getCreatedAt() != null)

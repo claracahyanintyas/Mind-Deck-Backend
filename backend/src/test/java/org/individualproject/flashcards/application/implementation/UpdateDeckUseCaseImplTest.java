@@ -3,6 +3,7 @@ package org.individualproject.flashcards.application.implementation;
 import org.individualproject.flashcards.application.deck.DTO.UpdateDeckCommand;
 import org.individualproject.flashcards.application.persistence.DeckRepository;
 import org.individualproject.flashcards.domain.deck.Deck;
+import org.individualproject.flashcards.domain.user.User;
 import org.individualproject.flashcards.infrastructure.config.database.entity.DeckEntity;
 import org.individualproject.flashcards.infrastructure.config.database.JpaRepository.DeckJpaRepository;
 import org.individualproject.flashcards.infrastructure.deck.DTO.UpdateDeckRequest;
@@ -33,8 +34,9 @@ class UpdateDeckUseCaseImplTest {
 
     @Test
     void updateDeck_properInput_returnsUpdatedDeck() {
-        var originalEntity = new Deck(1L, "name", "", OffsetDateTime.now(), OffsetDateTime.now(), false, new ArrayList<>());
-        var updatedEntity =  new Deck(1L, "new name", "desc", OffsetDateTime.now(), OffsetDateTime.now(), true, new ArrayList<>());
+        var user = new User("guest");
+        var originalEntity = new Deck(1L, "name", "", OffsetDateTime.now(), OffsetDateTime.now(), false, user, new ArrayList<>());
+        var updatedEntity =  new Deck(1L, "new name", "desc", OffsetDateTime.now(), OffsetDateTime.now(), true, user, new ArrayList<>());
 
         when(deckRepository.findById(1L)).thenReturn(Optional.of(originalEntity));
         when(deckRepository.save(any())).thenReturn(updatedEntity);
@@ -42,7 +44,7 @@ class UpdateDeckUseCaseImplTest {
         var updateRequest = new UpdateDeckCommand("new name", "desc", true);
 
 
-        var response = updateDeckUseCase.updateDeck(originalEntity.getId(), updateRequest);
+        var response = updateDeckUseCase.updateDeck(originalEntity.getId(), updateRequest, "guest");
 
         assertEquals(updateRequest.name(), response.name());
         assertEquals(updateRequest.description(), response.description());
@@ -54,19 +56,19 @@ class UpdateDeckUseCaseImplTest {
 
         var updateRequest = new UpdateDeckCommand("name", "desc", true);
 
-        assertThrows(DeckNotFoundException.class, () -> updateDeckUseCase.updateDeck(1L, updateRequest));
+        assertThrows(DeckNotFoundException.class, () -> updateDeckUseCase.updateDeck(1L, updateRequest, "guest"));
         verifyNoMoreInteractions(deckRepository);
     }
     @Test
     void updateDeck_nameIsEmpty_throwsIllegalArgumentException() {
         var updateRequest = new UpdateDeckCommand("", "desc", true);
 
-        assertThrows(IllegalArgumentException.class, () -> updateDeckUseCase.updateDeck(1L, updateRequest));
+        assertThrows(IllegalArgumentException.class, () -> updateDeckUseCase.updateDeck(1L, updateRequest, "guest"));
         verifyNoInteractions(deckRepository);
     }
     @Test
     void updateDeck_invalidId_throwsException() {
         var updateRequest = new UpdateDeckCommand("name", "desc", true);
-        assertThrows(IllegalArgumentException.class, () -> updateDeckUseCase.updateDeck(0L, updateRequest));
+        assertThrows(IllegalArgumentException.class, () -> updateDeckUseCase.updateDeck(0L, updateRequest, "guest"));
     }
 }

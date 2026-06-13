@@ -9,11 +9,9 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.individualproject.flashcards.domain.deck.Deck;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -49,6 +47,10 @@ public class DeckEntity {
     @NotNull
     @Column(name = "is_private")
     private boolean isPrivate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "created_by", nullable = false)
+    private UserEntity createdBy;
 
     @OneToMany(
             mappedBy = "deck",

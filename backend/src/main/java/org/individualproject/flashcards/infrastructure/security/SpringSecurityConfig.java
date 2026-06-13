@@ -67,6 +67,7 @@ public class SpringSecurityConfig {
         String cardPath = "/api/cards/**";
         String authPath = "/api/auth/**";
         String userPath = "/api/users/**";
+        String reviewPath = "/api/reviews/**";
 
         http.csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
@@ -83,6 +84,7 @@ public class SpringSecurityConfig {
                     authorize.requestMatchers(HttpMethod.DELETE, cardPath).permitAll();
                     authorize.requestMatchers(HttpMethod.POST, authPath).permitAll();
                     authorize.requestMatchers(HttpMethod.GET, userPath).permitAll();
+                    authorize.requestMatchers(HttpMethod.GET, reviewPath).authenticated();
                     authorize.anyRequest().authenticated();
                 })
                 .exceptionHandling(exception ->

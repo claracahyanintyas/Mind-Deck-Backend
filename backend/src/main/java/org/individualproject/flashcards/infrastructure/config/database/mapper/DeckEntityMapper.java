@@ -18,6 +18,7 @@ public class DeckEntityMapper {
                 .createdAt(deck.getCreatedAt())
                 .updatedAt(deck.getUpdatedAt())
                 .isPrivate(deck.getIsPrivate())
+                .createdBy(UserEntityMapper.toEntity(deck.getCreatedBy()))
                 .cards(new ArrayList<>())
                 .build();
 
@@ -33,6 +34,7 @@ public class DeckEntityMapper {
     }
     public static Deck fromEntity(DeckEntity entity){
         return new Deck(entity.getId(), entity.getName(), entity.getDescription(), entity.getCreatedAt(),entity.getUpdatedAt(),
-                entity.isPrivate(), entity.getCards().stream().map(CardEntityMapper::fromEntity).collect(Collectors.toList()));
+                entity.isPrivate(), UserEntityMapper.fromEntity(entity.getCreatedBy()),
+                entity.getCards().stream().map(CardEntityMapper::fromEntity).collect(Collectors.toList()));
     }
 }

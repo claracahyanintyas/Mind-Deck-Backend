@@ -1,7 +1,7 @@
 package org.individualproject.flashcards.application.deck.implementation;
 
 import lombok.AllArgsConstructor;
-import org.individualproject.flashcards.application.card.DTO.CardPublicData;
+import org.individualproject.flashcards.application.deck.mapper.DeckDTOMapper;
 import org.individualproject.flashcards.application.persistence.DeckRepository;
 import org.individualproject.flashcards.application.deck.DTO.DeckPublicData;
 import org.individualproject.flashcards.application.deck.DTO.UpdateDeckCommand;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service @AllArgsConstructor
 public class UpdateDeckUseCaseImpl implements UpdateDeckUseCase {
     private DeckRepository deckRepository;
-    public DeckPublicData updateDeck(Long id, UpdateDeckCommand command) {
+    public DeckPublicData updateDeck(Long id, UpdateDeckCommand command, String requestingUsername) {
         if (command == null) {
             throw new IllegalArgumentException("Request cannot be null");
         }
@@ -25,25 +25,10 @@ public class UpdateDeckUseCaseImpl implements UpdateDeckUseCase {
 
         var deck = deckRepository.findById(id).orElseThrow(DeckNotFoundException::new);
 
-        deck.updateDetails(command.name(),  command.description(), command.isPrivate());
+        deck.updateDetails(command.name(),  command.description(), command.isPrivate(), requestingUsername);
 
         var savedDeck = deckRepository.save(deck);
 
-        var cards = savedDeck.getCards()
-                .stream()
-                .map(card -> new CardPublicData(
-                        card.getId(),
-                        card.getFrontSide().content(),
-                        card.getFrontSide().contentType(),
-                        card.getBackSide().content(),
-                        card.getBackSide().contentType(),
-                        card.getCreatedAt(),
-                        card.getUpdatedAt()
-                ))
-                .toList();
-
-        return new DeckPublicData(savedDeck.getId(), savedDeck.getName(),
-                savedDeck.getDescription(), savedDeck.getCreatedAt(),
-                savedDeck.getUpdatedAt(), savedDeck.getIsPrivate(), cards);
+        return DeckDTOMapper.toDeckPublicData(savedDeck);
     }
 }
