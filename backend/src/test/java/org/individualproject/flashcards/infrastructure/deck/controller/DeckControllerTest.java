@@ -99,7 +99,7 @@ class DeckControllerTest {
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.errors").isArray())
-                .andExpect(jsonPath("$.errors[0]").value("name cannot be blank"));
+                .andExpect(jsonPath("$.errors[1]").value("name cannot be blank"));
     }
     @Test
     void getDeck_validId_returnsDeck() throws Exception {
