@@ -3,6 +3,7 @@ package org.individualproject.flashcards.infrastructure.security.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.individualproject.flashcards.application.exception.UserNotFoundException;
 import org.individualproject.flashcards.application.security.AuthService;
 import org.individualproject.flashcards.application.security.DTO.LoginInput;
 import org.individualproject.flashcards.application.security.DTO.RegisterCommand;
@@ -35,8 +36,27 @@ public class AuthController {
     private RefreshTokenUseCase refreshTokenUseCase;
 
     @PostMapping("/guest")
-    public ResponseEntity<?> createGuestSession() {
-        jwtGuestOutput jwtGuestOutput = guestService.createGuestSession();
+    public ResponseEntity<?> createGuestSession(
+            @CookieValue(name = "refreshToken", required = false) String existingRefreshToken
+    ) {
+        jwtGuestOutput jwtGuestOutput;
+
+        if (existingRefreshToken != null && tokenProvider.validateToken(existingRefreshToken)) {
+            String username = tokenProvider.getUsername(existingRefreshToken);
+
+            if (username.startsWith("guest")) {
+                try {
+                    jwtGuestOutput = guestService.refreshExistingGuestSession(username);
+                } catch (UserNotFoundException e) {
+                    // Fallback if the database was wiped or the guest row expired
+                    jwtGuestOutput = guestService.createGuestSession();
+                }
+            } else {
+                jwtGuestOutput = guestService.createGuestSession();
+            }
+        } else {
+            jwtGuestOutput = guestService.createGuestSession();
+        }
 
         ResponseCookie jwtCookie = tokenProvider.generateJwtCookie(jwtGuestOutput.token());
         ResponseCookie refreshCookie = tokenProvider.generateRefreshCookie(jwtGuestOutput.refreshToken());
@@ -46,7 +66,6 @@ public class AuthController {
                 .header(HttpHeaders.SET_COOKIE, refreshCookie.toString())
                 .body("Guest session initialized as: " + jwtGuestOutput.user().username());
     }
-
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody @Valid LoginRequest loginRequest) {
         LoginInput loginInput = new LoginInput(loginRequest.usernameOrEmail(), loginRequest.password());

@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="676cb466-c7a2-4067-97fb-8ad92c9f4d23" name="Changes" comment="end2end test">
+    <list default="true" id="676cb466-c7a2-4067-97fb-8ad92c9f4d23" name="Changes" comment="tests fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/deck/implementation/GetAllDecksUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/deck/implementation/GetAllDecksUseCaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/persistence/DeckRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/persistence/DeckRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/security/GuestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/security/GuestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/security/implementation/GuestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/security/implementation/GuestServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/card/DTO/EditCardRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/card/DTO/EditCardRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/JpaRepository/DeckJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/JpaRepository/DeckJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/repositoryImpl/DeckRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/repositoryImpl/DeckRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/deck/DTO/AddCardRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/deck/DTO/AddCardRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/deck/DTO/CreateDeckRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/deck/DTO/CreateDeckRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/deck/DTO/UpdateDeckRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/deck/DTO/UpdateDeckRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/DTO/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/DTO/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/controller/AuthController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +78,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/progress-and-review" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -103,6 +114,7 @@
   "keyToString": {
     "Gradle.Build backend.executor": "Run",
     "Gradle.CardControllerTest.deleteCard_ReturnsNoContent.executor": "Run",
+    "Gradle.DeckControllerTest.createDeck_EmptyName_ThrowsException.executor": "Run",
     "Gradle.DeckControllerTest.executor": "Run",
     "Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks.executor": "Run",
     "Gradle.Tests in 'backend.test'.executor": "Run",
@@ -116,7 +128,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.FlashCardsApplication.executor": "Run",
     "Spring Boot.test.executor": "Run",
-    "git-widget-placeholder": "end2end-test",
+    "git-widget-placeholder": "minor-fixes",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/kuliah/full stack development/flash-cards",
     "node.js.detected.package.eslint": "true",
@@ -132,7 +144,7 @@
       <recent name="D:\kuliah\full stack development\flash-cards\backend" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'backend.test'">
+  <component name="RunManager" selected="Spring Boot.FlashCardsApplication">
     <configuration name="CardControllerTest.deleteCard_ReturnsNoContent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -489,7 +501,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781607635585</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="tests fixed">
+      <option name="closed" value="true" />
+      <created>1781620530584</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1781620530584</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,10 +536,10 @@
     <MESSAGE value="ci yml change" />
     <MESSAGE value="spring security config change" />
     <MESSAGE value="review and edit card" />
-    <MESSAGE value="tests fixed" />
     <MESSAGE value="fixed classes" />
     <MESSAGE value="end2end test" />
-    <option name="LAST_COMMIT_MESSAGE" value="end2end test" />
+    <MESSAGE value="tests fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
