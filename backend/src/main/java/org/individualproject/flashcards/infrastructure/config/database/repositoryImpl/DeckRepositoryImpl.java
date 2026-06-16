@@ -9,7 +9,6 @@ import org.individualproject.flashcards.infrastructure.config.database.mapper.De
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 @Repository @RequiredArgsConstructor
@@ -37,5 +36,9 @@ public class DeckRepositoryImpl implements DeckRepository {
         DeckEntity entity = DeckEntityMapper.toEntity(deck);
         DeckEntity saved = jpaRepository.saveAndFlush(entity);
         return DeckEntityMapper.fromEntity(saved);
+    }
+    @Override
+    public Collection<Deck> findAllPublicDecks(){
+        return jpaRepository.findAllByIsPrivateFalse().stream().map(DeckEntityMapper::fromEntity).toList();
     }
 }

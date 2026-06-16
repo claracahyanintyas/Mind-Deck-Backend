@@ -12,4 +12,5 @@ public interface DeckRepository {
     Deck save(Deck deck);
     Collection<Deck> findAll();
     Deck saveAndFlush(Deck deck);
+    Collection<Deck> findAllPublicDecks();
 }
