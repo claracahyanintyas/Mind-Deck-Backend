@@ -78,7 +78,7 @@ class DeckControllerTest {
     @WithMockUser(username = "guest")
     void createDeck_EmptyName_ThrowsException() throws Exception {
         var user = new UserEntity(
-                1L,
+                null,
                 "guest",
                 "",
                 "",
