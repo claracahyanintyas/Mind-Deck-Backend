@@ -1,6 +1,7 @@
 package org.individualproject.flashcards.infrastructure.security.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.individualproject.flashcards.application.security.AuthService;
 import org.individualproject.flashcards.application.security.DTO.LoginInput;
@@ -47,7 +48,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<?> login(@RequestBody @Valid LoginRequest loginRequest) {
         LoginInput loginInput = new LoginInput(loginRequest.usernameOrEmail(), loginRequest.password());
         jwtAuthOutput jwtAuthOutput = authService.login(loginInput);
 
@@ -72,7 +73,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody RegisterRequest registerRequest) {
+    public ResponseEntity<?> registerUser(@RequestBody @Valid RegisterRequest registerRequest) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         RegisterCommand registerCommand = new RegisterCommand(registerRequest.username(), registerRequest.email(), registerRequest.password());

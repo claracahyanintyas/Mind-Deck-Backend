@@ -34,11 +34,11 @@ public class UserEntity {
     @Column(name = "username")
     private String username;
 
-    @Size(min = 1 ,max = 255)
+    @Size(max = 255)
     @Column(name = "email")
     private String email;
 
-    @Size(min = 1 ,max = 255)
+    @Size(max = 255)
     @Column(name = "password_hash")
     private String passwordHash;
 
