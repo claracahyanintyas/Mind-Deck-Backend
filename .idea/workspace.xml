@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="676cb466-c7a2-4067-97fb-8ad92c9f4d23" name="Changes" comment="review and edit card">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="676cb466-c7a2-4067-97fb-8ad92c9f4d23" name="Changes" comment="tests fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/card/implementation/AddCardToDeckUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/card/implementation/AddCardToDeckUseCaseImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/implementation/CreateDeckUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/implementation/CreateDeckUseCaseImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/implementation/GetDeckUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/implementation/GetDeckUseCaseImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/implementation/UpdateDeckUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/implementation/UpdateDeckUseCaseImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/card/CardControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/card/CardControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/deck/controller/DeckControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/deck/controller/DeckControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/card/implementation/EditCardUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/card/implementation/EditCardUseCaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/deck/DTO/DeckPublicData.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/deck/DTO/DeckPublicData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/deck/implementation/GetAllDecksUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/deck/implementation/GetAllDecksUseCaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/deck/implementation/GetDeckUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/deck/implementation/GetDeckUseCaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/deck/mapper/DeckDTOMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/deck/mapper/DeckDTOMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/persistence/CardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/persistence/CardRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/repositoryImpl/CardRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/repositoryImpl/CardRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/DTO/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/DTO/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/controller/AuthController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +136,7 @@
       <recent name="D:\kuliah\full stack development\flash-cards\backend" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks">
+  <component name="RunManager" selected="Spring Boot.FlashCardsApplication">
     <configuration name="CardControllerTest.deleteCard_ReturnsNoContent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -270,7 +273,7 @@
       <workItem from="1780993369673" duration="2223000" />
       <workItem from="1781171216989" duration="27806000" />
       <workItem from="1781308331530" duration="1801000" />
-      <workItem from="1781310154058" duration="454000" />
+      <workItem from="1781310154058" duration="15194000" />
     </task>
     <task id="LOCAL-00001" summary="ci">
       <option name="closed" value="true" />
@@ -416,7 +419,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781308524042</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="tests fixed">
+      <option name="closed" value="true" />
+      <created>1781310617341</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1781310617341</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +454,8 @@
     <MESSAGE value="ci yml change" />
     <MESSAGE value="spring security config change" />
     <MESSAGE value="review and edit card" />
-    <option name="LAST_COMMIT_MESSAGE" value="review and edit card" />
+    <MESSAGE value="tests fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

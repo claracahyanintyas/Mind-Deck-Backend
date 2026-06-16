@@ -22,7 +22,7 @@ public class EditCardUseCaseImpl implements EditCardUseCase {
     public CardPublicData editCard(EditCardCommand card, Long cardId) {
         Card oldCard = cardRepository.findById(cardId).orElseThrow(CardNotFoundException::new);
         oldCard.updateCard(new CardSide(card.frontContent(), card.frontContentType()), new CardSide(card.backContent(), card.backContentType()));
-        Card savedCard = cardRepository.findById(cardId).orElseThrow(CardNotFoundException::new);
+        Card savedCard = cardRepository.save(oldCard).orElseThrow(CardNotFoundException::new);
         return CardDTOMapper.toDTO(savedCard);
     }
 }
