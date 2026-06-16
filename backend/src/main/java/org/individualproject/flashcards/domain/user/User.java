@@ -24,11 +24,19 @@ public class User {
     private String refreshToken;
     private Instant refreshTokenExpiryDate;
 
-    //register
+    //register as guest
     public void setUserCredentials(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+    //register new user
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.active = true;
+        this.createdAt = OffsetDateTime.now();
     }
 
     public User(Long id, String username, String email, String password, OffsetDateTime createdAt, boolean active, Set<Role> roles, String refreshToken, Instant refreshTokenExpiryDate) {

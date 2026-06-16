@@ -26,44 +26,73 @@ public class JwtTokenProvider {
     private long jwtExpirationDate;
 
     @Getter @Value("${app.refresh-expiration-ms}")
-    private long refreshExpirationMs;   // 7 days
+    private long refreshExpirationMs;
 
-    // FIX: Define a consistent name for your cookie instead of using the secret
-    private static final String COOKIE_NAME = "jwt_token";
+    private static final String ACCESS_COOKIE_NAME = "accessToken";
+    private static final String REFRESH_COOKIE_NAME = "refreshToken";
 
-    // Create the HttpOnly cookie
+    // Standardized Security Configurations (Change secure to false ONLY for local localhost dev without HTTPS)
+    private static final boolean COOKIE_SECURE = true;
+    private static final String COOKIE_SAME_SITE = "Strict";
+
+    // 1. Unified Access Token Generator (Always uses path "/")
     public ResponseCookie generateJwtCookie(String token) {
-        return ResponseCookie.from(COOKIE_NAME, token) // Use COOKIE_NAME here
+        return ResponseCookie.from(ACCESS_COOKIE_NAME, token)
                 .path("/")
-                .httpOnly(true)                    // Prevents JavaScript access (XSS protection)
-                .secure(false)                     // Set to true in production (requires HTTPS)
-                .sameSite("Lax")                   // Protects against CSRF
-                .maxAge(jwtExpirationDate / 1000)  // Dynamically use your app properties expiration (in seconds)
+                .httpOnly(true)
+                .secure(COOKIE_SECURE)
+                .sameSite(COOKIE_SAME_SITE)
+                .maxAge(jwtExpirationDate / 1000)
                 .build();
     }
 
-    // Extract the token from the cookie instead of the Authorization Header
-    public String getJwtFromCookie(HttpServletRequest request) {
-        Cookie cookie = WebUtils.getCookie(request, COOKIE_NAME); // Use COOKIE_NAME here
-        if (cookie != null) {
-            return cookie.getValue();
-        }
-        return null;
+    // 2. Unified Refresh Token Generator (Always uses path "/api/auth")
+    public ResponseCookie generateRefreshCookie(String refreshTokenStr) {
+        return ResponseCookie.from(REFRESH_COOKIE_NAME, refreshTokenStr)
+                .path("/api/auth")
+                .httpOnly(true)
+                .secure(COOKIE_SECURE)
+                .sameSite(COOKIE_SAME_SITE)
+                .maxAge(refreshExpirationMs / 1000)
+                .build();
     }
 
-    // Clean cookie for logout
+    // 3. Clean access cookie (Matches creation attributes perfectly)
     public ResponseCookie getCleanJwtCookie() {
-        return ResponseCookie.from(COOKIE_NAME, null).path("/").maxAge(0).build(); // Use COOKIE_NAME here
+        return ResponseCookie.from(ACCESS_COOKIE_NAME, null)
+                .path("/")
+                .httpOnly(true)
+                .secure(COOKIE_SECURE)
+                .sameSite(COOKIE_SAME_SITE)
+                .maxAge(0)
+                .build();
     }
 
+    // 4. Clean refresh cookie (Matches creation attributes perfectly)
+    public ResponseCookie getCleanRefreshCookie() {
+        return ResponseCookie.from(REFRESH_COOKIE_NAME, null)
+                .path("/api/auth")
+                .httpOnly(true)
+                .secure(COOKIE_SECURE)
+                .sameSite(COOKIE_SAME_SITE)
+                .maxAge(0)
+                .build();
+    }
 
-    // generate JWT token (For normal login)
+    public String getJwtFromCookie(HttpServletRequest request) {
+        Cookie cookie = WebUtils.getCookie(request, ACCESS_COOKIE_NAME);
+        return (cookie != null) ? cookie.getValue() : null;
+    }
+
+    public String getCookieValue(HttpServletRequest request, String cookieName) {
+        Cookie cookie = WebUtils.getCookie(request, cookieName);
+        return (cookie != null) ? cookie.getValue() : null;
+    }
+
     public String generateToken(Authentication authentication){
-        String username = authentication.getName();
-        return generateTokenFromUsername(username);
+        return generateTokenFromUsername(authentication.getName());
     }
 
-    // UPGRADE: Overload method so you can easily generate tokens for Guests using just a username string
     public String generateTokenFromUsername(String username) {
         Date currentDate = new Date();
         Date expireDate = new Date(currentDate.getTime() + jwtExpirationDate);
@@ -80,7 +109,6 @@ public class JwtTokenProvider {
         return Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
     }
 
-    // get username from JWT token
     public String getUsername(String token){
         return Jwts.parser()
                 .verifyWith((SecretKey) key())
@@ -90,7 +118,6 @@ public class JwtTokenProvider {
                 .getSubject();
     }
 
-    // validate JWT token
     public boolean validateToken(String token) {
         try {
             Jwts.parser()
@@ -102,47 +129,5 @@ public class JwtTokenProvider {
             System.out.println("❌ Invalid JWT: " + ex.getMessage());
             return false;
         }
-    }
-
-    // Drop short-lived access cookie envelope
-    public ResponseCookie generateAccessCookie(String jwtToken) {
-        return ResponseCookie.from("jwt_access_token", jwtToken)
-                .path("/api")
-                .maxAge(jwtExpirationDate / 1000)
-                .httpOnly(true)
-                .secure(true) // Set to false ONLY if testing without local HTTPS proxy
-                .sameSite("Strict")
-                .build();
-    }
-
-    // Drop long-lived refresh cookie envelope (Scoped strictly to your refresh path!)
-    public ResponseCookie generateRefreshCookie(String refreshTokenStr) {
-        return ResponseCookie.from("jwt_refresh_token", refreshTokenStr)
-                .path("/api/auth/refresh")
-                .maxAge(refreshExpirationMs / 1000)
-                .httpOnly(true)
-                .secure(true)
-                .sameSite("Strict")
-                .build();
-    }
-
-    // Read cookie values cleanly from incoming headers
-    public String getCookieValue(HttpServletRequest request, String cookieName) {
-        if (request.getCookies() == null) return null;
-        for (Cookie cookie : request.getCookies()) {
-            if (cookie.getName().equals(cookieName)) {
-                return cookie.getValue();
-            }
-        }
-        return null;
-    }
-
-    // Expiry cleanup utility
-    public ResponseCookie getCleanCookie(String cookieName, String path) {
-        return ResponseCookie.from(cookieName, "")
-                .path(path)
-                .maxAge(0)
-                .httpOnly(true)
-                .build();
     }
 }
