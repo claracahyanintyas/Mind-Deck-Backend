@@ -4,20 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="676cb466-c7a2-4067-97fb-8ad92c9f4d23" name="Changes" comment="tests fixed">
+    <list default="true" id="676cb466-c7a2-4067-97fb-8ad92c9f4d23" name="Changes" comment="fixed guest and register">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/ChangeCardUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/DTO/ClassroomSessionOutput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/EndClassroomSessionUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/FlipCardUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/GetClassroomStatusUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/JoinClassroomSessionUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/LeaveClassroomSessionUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/StartClassroomSessionUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/SubmitVoteUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/ChangeCardUseCaseImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/EndClassroomSessionUseCaseImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/FlipCardUseCaseImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/GetClassroomStatusUseCaseImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/JoinClassroomSessionUseCaseImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/LeaveClassroomSessionUseCaseImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/StartClassroomSessionUseCaseImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/SubmitVoteUseCaseImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/exception/RoomNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/persistence/ClassroomSessionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/domain/classroomSession/ClassroomSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/classroom/controller/ClassroomRESTController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/classroom/controller/ClassroomWebSocketController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/classroom/listener/WebSocketEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/repositoryImpl/ClassroomSessionRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/websocket/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/websocket/controller/WebSocketTestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/deck/implementation/GetAllDecksUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/deck/implementation/GetAllDecksUseCaseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/persistence/DeckRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/persistence/DeckRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/security/GuestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/security/GuestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/security/implementation/GuestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/security/implementation/GuestServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/card/DTO/EditCardRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/card/DTO/EditCardRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/JpaRepository/DeckJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/JpaRepository/DeckJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/repositoryImpl/DeckRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/repositoryImpl/DeckRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/deck/DTO/AddCardRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/deck/DTO/AddCardRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/deck/DTO/CreateDeckRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/deck/DTO/CreateDeckRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/deck/DTO/UpdateDeckRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/deck/DTO/UpdateDeckRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/DTO/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/DTO/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/SpringSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/SpringSecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,9 +84,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Record" />
         <option value="Exception" />
         <option value="Interface" />
-        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
@@ -106,39 +122,42 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="3EjDirJyBHnLxl1Eo9H1AgRtUcl" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build backend.executor": "Run",
-    "Gradle.CardControllerTest.deleteCard_ReturnsNoContent.executor": "Run",
-    "Gradle.DeckControllerTest.createDeck_EmptyName_ThrowsException.executor": "Run",
-    "Gradle.DeckControllerTest.executor": "Run",
-    "Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks.executor": "Run",
-    "Gradle.Tests in 'backend.test'.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.FlashCardsApplication.executor": "Run",
-    "Spring Boot.test.executor": "Run",
-    "git-widget-placeholder": "minor-fixes",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/kuliah/full stack development/flash-cards",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build backend.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CardControllerTest.deleteCard_ReturnsNoContent.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.DeckControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Tests in 'backend.test'.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.FlashCardsApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.test.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/classroom-session&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/kuliah/full stack development/flash-cards&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\kuliah\full stack development\flash-cards\backend" />
@@ -332,6 +351,7 @@
       <workItem from="1781171216989" duration="27806000" />
       <workItem from="1781308331530" duration="1801000" />
       <workItem from="1781310154058" duration="19832000" />
+      <workItem from="1781852800027" duration="2731000" />
     </task>
     <task id="LOCAL-00001" summary="ci">
       <option name="closed" value="true" />
@@ -501,15 +521,31 @@
       <option name="project" value="LOCAL" />
       <updated>1781607635585</updated>
     </task>
-    <task id="LOCAL-00022" summary="tests fixed">
+    <task id="LOCAL-00022" summary="test fix">
       <option name="closed" value="true" />
-      <created>1781620530584</created>
+      <created>1781630571916</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1781620530584</updated>
+      <updated>1781630571916</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="fixed guest and register">
+      <option name="closed" value="true" />
+      <created>1781643617180</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1781643617180</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fixed guest and register">
+      <option name="closed" value="true" />
+      <created>1781643634435</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1781643634435</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,10 +572,12 @@
     <MESSAGE value="ci yml change" />
     <MESSAGE value="spring security config change" />
     <MESSAGE value="review and edit card" />
+    <MESSAGE value="tests fixed" />
     <MESSAGE value="fixed classes" />
     <MESSAGE value="end2end test" />
-    <MESSAGE value="tests fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="tests fixed" />
+    <MESSAGE value="test fix" />
+    <MESSAGE value="fixed guest and register" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed guest and register" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
