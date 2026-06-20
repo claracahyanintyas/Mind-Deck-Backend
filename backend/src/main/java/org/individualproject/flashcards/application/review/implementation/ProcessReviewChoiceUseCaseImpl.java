@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.individualproject.flashcards.application.persistence.ReviewRepository;
 import org.individualproject.flashcards.application.review.DTO.ProgressOutput;
+import org.individualproject.flashcards.application.review.DTO.ReviewCardPublicData;
 import org.individualproject.flashcards.application.review.ProcessReviewChoiceUseCase;
 import org.individualproject.flashcards.application.review.mapper.ReviewCardDTOMapper;
 import org.individualproject.flashcards.domain.review.Review;
@@ -27,13 +28,17 @@ public class ProcessReviewChoiceUseCaseImpl implements ProcessReviewChoiceUseCas
 
         ReviewCard nextCard = review.determineNextCard();
 
+        ReviewCardPublicData nextCardDTO = (nextCard != null)
+                ? ReviewCardDTOMapper.toDTO(nextCard)
+                : null;
+
         return ProgressOutput.builder()
                 .reviewId(review.getId())
                 .progressPercentage(review.getProgressPercentage())
                 .totalCards(review.getTotalCards())
                 .cardsArchivedCount(review.getCardsArchivedCount())
-                .isFinished(review.isSessionComplete())
-                .nextCard(ReviewCardDTOMapper.toDTO(nextCard))
+                .isFinished(review.isSessionComplete() || nextCardDTO == null)
+                .nextCard(nextCardDTO)
                 .build();
     }
 }
