@@ -32,7 +32,7 @@ public class JwtTokenProvider {
     private static final String REFRESH_COOKIE_NAME = "refreshToken";
 
     // Standardized Security Configurations (Change secure to false ONLY for local localhost dev without HTTPS)
-    private static final boolean COOKIE_SECURE = true;
+    private static final boolean COOKIE_SECURE = false;
     private static final String COOKIE_SAME_SITE = "Strict";
 
     // 1. Unified Access Token Generator (Always uses path "/")
@@ -49,7 +49,7 @@ public class JwtTokenProvider {
     // 2. Unified Refresh Token Generator (Always uses path "/api/auth")
     public ResponseCookie generateRefreshCookie(String refreshTokenStr) {
         return ResponseCookie.from(REFRESH_COOKIE_NAME, refreshTokenStr)
-                .path("/api/auth")
+                .path("/")
                 .httpOnly(true)
                 .secure(COOKIE_SECURE)
                 .sameSite(COOKIE_SAME_SITE)
@@ -71,7 +71,7 @@ public class JwtTokenProvider {
     // 4. Clean refresh cookie (Matches creation attributes perfectly)
     public ResponseCookie getCleanRefreshCookie() {
         return ResponseCookie.from(REFRESH_COOKIE_NAME, null)
-                .path("/api/auth")
+                .path("/")
                 .httpOnly(true)
                 .secure(COOKIE_SECURE)
                 .sameSite(COOKIE_SAME_SITE)
