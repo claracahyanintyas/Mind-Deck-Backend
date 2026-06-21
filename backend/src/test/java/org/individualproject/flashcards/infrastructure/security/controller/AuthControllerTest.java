@@ -2,7 +2,6 @@ package org.individualproject.flashcards.infrastructure.security.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.Cookie;
-import org.individualproject.flashcards.application.exception.UserNotFoundException;
 import org.individualproject.flashcards.application.security.AuthService;
 import org.individualproject.flashcards.application.security.DTO.LoginInput;
 import org.individualproject.flashcards.application.security.DTO.RegisterCommand;
@@ -31,7 +30,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.OffsetDateTime;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 

@@ -1,17 +1,12 @@
 package org.individualproject.flashcards.infrastructure.review.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
 import org.antlr.v4.runtime.misc.Array2DHashSet;
 import org.individualproject.flashcards.domain.card.ContentType;
 import org.individualproject.flashcards.domain.review.CardState;
-import org.individualproject.flashcards.domain.review.ReviewCard;
 import org.individualproject.flashcards.domain.review.ReviewChoice;
 import org.individualproject.flashcards.infrastructure.config.database.JpaRepository.*;
 import org.individualproject.flashcards.infrastructure.config.database.entity.*;
-// Import your actual repositories/entities for reviews & cards below:
-// import org.individualproject.flashcards.infrastructure.config.database.JpaRepository.ReviewJpaRepository;
-// import org.individualproject.flashcards.infrastructure.config.database.JpaRepository.CardJpaRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

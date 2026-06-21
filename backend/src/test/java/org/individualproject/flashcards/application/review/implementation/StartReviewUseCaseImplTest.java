@@ -1,6 +1,5 @@
 package org.individualproject.flashcards.application.review.implementation;
 
-import org.individualproject.flashcards.application.exception.DeckNotFoundException;
 import org.individualproject.flashcards.application.exception.UserNotFoundException;
 import org.individualproject.flashcards.application.persistence.DeckRepository;
 import org.individualproject.flashcards.application.persistence.ReviewRepository;
