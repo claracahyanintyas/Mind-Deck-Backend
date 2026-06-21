@@ -22,7 +22,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         // The endpoint the frontend uses to connect
         registry.addEndpoint("/ws-classroom")
-                .setAllowedOriginPatterns("*") // Configure according to your CORS setup
+                .setAllowedOriginPatterns("http://145.220.72.104", "http://localhost:5173") // Configure according to your CORS setup
                 .withSockJS(); // Fallback for browsers that don't support native WebSockets
     }
 }
