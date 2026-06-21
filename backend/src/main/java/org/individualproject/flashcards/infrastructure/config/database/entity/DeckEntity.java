@@ -48,7 +48,7 @@ public class DeckEntity {
     @Column(name = "is_private")
     private boolean isPrivate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "created_by", nullable = false)
     private UserEntity createdBy;
 
@@ -56,7 +56,7 @@ public class DeckEntity {
             mappedBy = "deck",
             cascade = CascadeType.ALL,
             orphanRemoval = true,
-            fetch = FetchType.LAZY
+            fetch = FetchType.EAGER
     )
     private List<CardEntity> cards = new ArrayList<>();
 

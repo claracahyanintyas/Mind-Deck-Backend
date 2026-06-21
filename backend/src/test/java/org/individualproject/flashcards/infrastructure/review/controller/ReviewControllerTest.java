@@ -18,7 +18,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.UUID;
 

@@ -12,6 +12,7 @@ import org.individualproject.flashcards.application.security.DTO.jwtGuestOutput;
 import org.individualproject.flashcards.application.security.GuestService;
 import org.individualproject.flashcards.application.security.RefreshTokenUseCase;
 import org.individualproject.flashcards.application.security.RegisterUserUseCase;
+import org.individualproject.flashcards.application.user.DTO.UserPublicData;
 import org.individualproject.flashcards.infrastructure.security.DTO.LoginRequest;
 import org.individualproject.flashcards.infrastructure.security.jwt.JwtTokenProvider;
 import org.springframework.http.HttpHeaders;
@@ -36,7 +37,7 @@ public class AuthController {
     private RefreshTokenUseCase refreshTokenUseCase;
 
     @PostMapping("/guest")
-    public ResponseEntity<?> createGuestSession(
+    public ResponseEntity<UserPublicData> createGuestSession(
             @CookieValue(name = "refreshToken", required = false) String existingRefreshToken
     ) {
         jwtGuestOutput jwtGuestOutput;
@@ -67,7 +68,7 @@ public class AuthController {
                 .body(jwtGuestOutput.user());
     }
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody @Valid LoginRequest loginRequest) {
+    public ResponseEntity<UserPublicData> login(@RequestBody @Valid LoginRequest loginRequest) {
         LoginInput loginInput = new LoginInput(loginRequest.usernameOrEmail(), loginRequest.password());
         jwtAuthOutput jwtAuthOutput = authService.login(loginInput);
 
@@ -94,7 +95,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(
+    public ResponseEntity<UserPublicData> register(
             @Valid @RequestBody RegisterCommand command
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
