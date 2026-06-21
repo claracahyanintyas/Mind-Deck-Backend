@@ -4,36 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="676cb466-c7a2-4067-97fb-8ad92c9f4d23" name="Changes" comment="fixed guest and register">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/ChangeCardUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/DTO/ClassroomSessionOutput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/EndClassroomSessionUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/FlipCardUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/GetClassroomStatusUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/JoinClassroomSessionUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/LeaveClassroomSessionUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/StartClassroomSessionUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/SubmitVoteUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/ChangeCardUseCaseImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/EndClassroomSessionUseCaseImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/FlipCardUseCaseImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/GetClassroomStatusUseCaseImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/JoinClassroomSessionUseCaseImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/LeaveClassroomSessionUseCaseImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/StartClassroomSessionUseCaseImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/classroomSession/implementation/SubmitVoteUseCaseImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/exception/RoomNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/application/persistence/ClassroomSessionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/domain/classroomSession/ClassroomSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/classroom/controller/ClassroomRESTController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/classroom/controller/ClassroomWebSocketController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/classroom/listener/WebSocketEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/config/database/repositoryImpl/ClassroomSessionRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/websocket/WebSocketConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/websocket/controller/WebSocketTestController.java" afterDir="false" />
+    <list default="true" id="676cb466-c7a2-4067-97fb-8ad92c9f4d23" name="Changes" comment="web socket set allowed origins">
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/classroomSession/implementation/ChangeCardUseCaseImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/classroomSession/implementation/FlipCardUseCaseImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/classroomSession/implementation/GetClassroomStatusUseCaseImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/classroomSession/implementation/JoinClassroomSessionUseCaseImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/classroomSession/implementation/LeaveClassroomSessionUseCaseImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/classroomSession/implementation/StartClassroomSessionUseCaseImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/classroomSession/implementation/SubmitVoteUseCaseImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/review/implementation/ProcessReviewChoiceUseCaseImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/review/implementation/StartReviewUseCaseImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/security/implementation/AuthServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/security/implementation/GuestServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/security/implementation/RefreshTokenUseCaseImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/security/implementation/RegisterUserUseCaseImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/application/user/implementation/GetUserByUsernameUseCaseImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/classroom/controller/ClassroomRESTControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/classroom/controller/ClassroomWebSocketControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/classroom/listener/WebSocketEventListenerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/review/controller/ReviewControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/security/controller/AuthControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/security/jwt/JwtTokenProviderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/user/controller/UserControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/websocket/controller/WebSocketTestControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/SpringSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/individualproject/flashcards/infrastructure/security/SpringSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/card/CardControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/org/individualproject/flashcards/infrastructure/card/CardControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,10 +79,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Record" />
         <option value="Exception" />
         <option value="Interface" />
+        <option value="Record" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -129,42 +125,84 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build backend.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CardControllerTest.deleteCard_ReturnsNoContent.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'backend.test'.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.FlashCardsApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.test.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/classroom-session&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/kuliah/full stack development/flash-cards&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.AuthControllerTest.executor": "Run",
+    "Gradle.AuthServiceImplTest.executor": "Run",
+    "Gradle.Build backend.executor": "Run",
+    "Gradle.CardControllerTest.deleteCard_ReturnsNoContent.executor": "Run",
+    "Gradle.CardControllerTest.executor": "Run",
+    "Gradle.ChangeCardUseCaseImplTest.execute_RoomNotFound_ShouldThrowIllegalArgumentException.executor": "Run",
+    "Gradle.ChangeCardUseCaseImplTest.execute_WithValidRoomCode_ShouldChangeCardAndReturnOutput.executor": "Run",
+    "Gradle.ChangeCardUseCaseImplTest.executor": "Run",
+    "Gradle.ClassroomRESTControllerTest.startSession_ValidDeckId_ReturnsClassroomSessionOutput.executor": "Run",
+    "Gradle.ClassroomWebSocketControllerTest.executor": "Run",
+    "Gradle.DeckControllerTest.createDeck_EmptyName_ThrowsException.executor": "Run",
+    "Gradle.DeckControllerTest.executor": "Run",
+    "Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks.executor": "Run",
+    "Gradle.FlipCardUseCaseImplTest.execute_WithValidRoomCode_ShouldFlipCardAndReturnOutput.executor": "Run",
+    "Gradle.FlipCardUseCaseImplTest.executor": "Run",
+    "Gradle.GetClassroomStatusUseCaseImplTest.executor": "Run",
+    "Gradle.GetUserByUsernameUseCaseImplTest.executor": "Run",
+    "Gradle.GuestServiceImplTest.executor": "Run",
+    "Gradle.JoinClassroomSessionUseCaseImplTest.executor": "Run",
+    "Gradle.LeaveClassroomSessionUseCaseImplTest.executor": "Run",
+    "Gradle.ProcessReviewChoiceUseCaseImplTest.executor": "Run",
+    "Gradle.ProcessReviewChoiceUseCaseImplTest.processReviewChoice_WithNextCardAvailable_ShouldReturnProgressWithNextCard.executor": "Run",
+    "Gradle.RefreshTokenUseCaseImplTest.executor": "Run",
+    "Gradle.RefreshTokenUseCaseImplTest.rotateSessionTokens_WithExpiredToken_ShouldClearTokenAndThrowRuntimeException.executor": "Run",
+    "Gradle.RegisterUserUseCaseImplTest.executor": "Run",
+    "Gradle.ReviewControllerTest.executor": "Run",
+    "Gradle.ReviewControllerTest.startReview_ValidDeckId_ReturnsReviewPublicData.executor": "Run",
+    "Gradle.ReviewControllerTest.submitCardReview_ValidChoice_ReturnsProgressOutput.executor": "Run",
+    "Gradle.StartClassroomSessionUseCaseImplTest.executor": "Run",
+    "Gradle.StartReviewUseCaseImplTest.executor": "Run",
+    "Gradle.SubmitVoteUseCaseImplTest.executor": "Run",
+    "Gradle.Tests in 'backend.test'.executor": "Coverage",
+    "Gradle.UserControllerTest.executor": "Run",
+    "Gradle.UserControllerTest.getCurrentUser_ShouldExtractUsernameFromContextAndReturnUserPublicData.executor": "Run",
+    "Gradle.WebSocketEventListenerTest.executor": "Run",
+    "Gradle.WebSocketTestControllerTest.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.FlashCardsApplication.executor": "Run",
+    "Spring Boot.test.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "tests",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/kuliah/full stack development/flash-cards",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\kuliah\full stack development\flash-cards\backend" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.individualproject.flashcards.infrastructure.security.jwt" />
+      <recent name="org.individualproject.flashcards.infrastructure.classroom.listener" />
+      <recent name="org.individualproject.flashcards.infrastructure.websocket.controller" />
+      <recent name="org.individualproject.flashcards.application.user.implementation" />
+      <recent name="org.individualproject.flashcards.infrastructure.classroom.controller" />
+    </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.FlashCardsApplication">
-    <configuration name="CardControllerTest.deleteCard_ReturnsNoContent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.JwtTokenProviderTest">
+    <configuration name="CardControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
@@ -177,7 +215,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.individualproject.flashcards.infrastructure.card.CardControllerTest.deleteCard_ReturnsNoContent&quot;" />
+            <option value="&quot;org.individualproject.flashcards.infrastructure.card.CardControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -188,7 +226,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="DeckControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="JwtTokenProviderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
@@ -201,55 +239,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.individualproject.flashcards.infrastructure.deck.controller.DeckControllerTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="DeckControllerTest.createDeck_EmptyName_ThrowsException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.individualproject.flashcards.infrastructure.deck.controller.DeckControllerTest.createDeck_EmptyName_ThrowsException&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="DeckControllerTest.getDecks_availableDecks_returnsDecks" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.individualproject.flashcards.infrastructure.deck.controller.DeckControllerTest.getDecks_availableDecks_returnsDecks&quot;" />
+            <option value="&quot;org.individualproject.flashcards.infrastructure.security.jwt.JwtTokenProviderTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -272,6 +262,54 @@
         <option name="taskNames">
           <list>
             <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="WebSocketEventListenerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.individualproject.flashcards.infrastructure.classroom.listener.WebSocketEventListenerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="WebSocketTestControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.individualproject.flashcards.infrastructure.websocket.controller.WebSocketTestControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -313,21 +351,21 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.DeckControllerTest.createDeck_EmptyName_ThrowsException" />
-      <item itemvalue="Gradle.CardControllerTest.deleteCard_ReturnsNoContent" />
-      <item itemvalue="Gradle.DeckControllerTest" />
-      <item itemvalue="Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks" />
+      <item itemvalue="Gradle.CardControllerTest" />
+      <item itemvalue="Gradle.JwtTokenProviderTest" />
+      <item itemvalue="Gradle.WebSocketEventListenerTest" />
+      <item itemvalue="Gradle.WebSocketTestControllerTest" />
       <item itemvalue="Gradle.Tests in 'backend.test'" />
       <item itemvalue="Spring Boot.FlashCardsApplication" />
       <item itemvalue="Spring Boot.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.JwtTokenProviderTest" />
+        <item itemvalue="Gradle.WebSocketEventListenerTest" />
+        <item itemvalue="Gradle.CardControllerTest" />
         <item itemvalue="Gradle.Tests in 'backend.test'" />
-        <item itemvalue="Gradle.DeckControllerTest.createDeck_EmptyName_ThrowsException" />
-        <item itemvalue="Gradle.DeckControllerTest.getDecks_availableDecks_returnsDecks" />
-        <item itemvalue="Gradle.DeckControllerTest" />
-        <item itemvalue="Gradle.CardControllerTest.deleteCard_ReturnsNoContent" />
+        <item itemvalue="Gradle.WebSocketTestControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -351,7 +389,6 @@
       <workItem from="1781171216989" duration="27806000" />
       <workItem from="1781308331530" duration="1801000" />
       <workItem from="1781310154058" duration="19832000" />
-      <workItem from="1781852800027" duration="2731000" />
     </task>
     <task id="LOCAL-00001" summary="ci">
       <option name="closed" value="true" />
@@ -521,29 +558,29 @@
       <option name="project" value="LOCAL" />
       <updated>1781607635585</updated>
     </task>
-    <task id="LOCAL-00022" summary="test fix">
+    <task id="LOCAL-00022" summary="tests fixed">
       <option name="closed" value="true" />
-      <created>1781630571916</created>
+      <created>1781620530584</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1781630571916</updated>
+      <updated>1781620530584</updated>
     </task>
-    <task id="LOCAL-00023" summary="fixed guest and register">
+    <task id="LOCAL-00023" summary="jwt token provider: secure false + path &quot;/&quot;">
       <option name="closed" value="true" />
-      <created>1781643617180</created>
+      <created>1781980654921</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1781643617180</updated>
+      <updated>1781980654921</updated>
     </task>
-    <task id="LOCAL-00024" summary="fixed guest and register">
+    <task id="LOCAL-00024" summary="web socket set allowed origins">
       <option name="closed" value="true" />
-      <created>1781643634435</created>
+      <created>1782011465549</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1781643634435</updated>
+      <updated>1782011465549</updated>
     </task>
     <option name="localTasksCounter" value="25" />
     <servers />
@@ -572,12 +609,12 @@
     <MESSAGE value="ci yml change" />
     <MESSAGE value="spring security config change" />
     <MESSAGE value="review and edit card" />
-    <MESSAGE value="tests fixed" />
     <MESSAGE value="fixed classes" />
     <MESSAGE value="end2end test" />
-    <MESSAGE value="test fix" />
-    <MESSAGE value="fixed guest and register" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed guest and register" />
+    <MESSAGE value="tests fixed" />
+    <MESSAGE value="jwt token provider: secure false + path &quot;/&quot;" />
+    <MESSAGE value="web socket set allowed origins" />
+    <option name="LAST_COMMIT_MESSAGE" value="web socket set allowed origins" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -589,5 +626,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/flash_cards$Tests_in__backend_test_.ic" NAME="Tests in 'backend.test' Coverage Results" MODIFIED="1782025948614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
