@@ -83,11 +83,10 @@ jacoco{
 
 sonar {
     properties {
-        property "sonar.projectKey", "flash-cards-backend"
-        property "sonar.projectName", "Flash Cards Backend"
-        property "sonar.host.url", "http://localhost:9000"
-        property "sonar.token", System.getenv("SONAR_TOKEN")
-        property "sonar.junit.reportPaths", "build/test-results/test"
-        property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
+        property "sonar.projectKey", "claracahyanintyas_Mind-Deck-Backend"
+        property "sonar.organization", "claracahyanintyas"
+        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.coverage.jacoco.xmlReportPaths",
+                "build/reports/jacoco/test/jacocoTestReport.xml"
     }
 }
