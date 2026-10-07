@@ -143,7 +143,7 @@ class AuthControllerTest {
     @Test
     void register_StandardFlow_ShouldPassNullGuestAndReturnAuthOutput() throws Exception {
         // Arrange
-        var command = new RegisterCommand("registeredUser", "reg@test.com", "pass123");
+        var command = new RegisterCommand("registeredUser", "reg@test.com", "pass1234");
         var publicData = new UserPublicData(3L, "registeredUser", "reg@test.com", OffsetDateTime.now(), true, Set.of("ROLE_USER"));
         var authOutput = new jwtAuthOutput("access-reg", "refresh-reg", publicData);
 
@@ -162,7 +162,7 @@ class AuthControllerTest {
     @Test
     void register_GuestUpgradeFlow_ShouldDetectGuestUsernameFromSecurityContext() throws Exception {
         // Arrange
-        var command = new RegisterCommand("guest_upgrade", "up@test.com", "pass123");
+        var command = new RegisterCommand("guest_upgrade", "up@test.com", "pass1234");
         var publicData = new UserPublicData(4L, "guest_upgrade", "up@test.com", OffsetDateTime.now(), true, Set.of("ROLE_USER"));
         var authOutput = new jwtAuthOutput("access-up", "refresh-up", publicData);
 
