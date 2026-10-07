@@ -21,3 +21,6 @@ app:
     secret: 8usHJK8hUJD729hu
   cors:
     allowed-origins: http://localhost:5173,http://localhost:3000
+  cookie:
+    secure: ${COOKIE_SECURE:false}
+    same-site: ${COOKIE_SAME_SITE:Lax}

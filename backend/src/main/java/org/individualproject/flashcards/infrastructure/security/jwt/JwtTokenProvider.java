@@ -31,9 +31,11 @@ public class JwtTokenProvider {
     private static final String ACCESS_COOKIE_NAME = "accessToken";
     private static final String REFRESH_COOKIE_NAME = "refreshToken";
 
-    // Standardized Security Configurations (Change secure to false ONLY for local localhost dev without HTTPS)
-    private static final boolean COOKIE_SECURE = false;
-    private static final String COOKIE_SAME_SITE = "Strict";
+    @Value("${app.cookie.secure:false}")
+    private boolean COOKIE_SECURE;
+
+    @Value("${app.cookie.same-site:Lax}")
+    private String COOKIE_SAME_SITE;
 
     // 1. Unified Access Token Generator (Always uses path "/")
     public ResponseCookie generateJwtCookie(String token) {
