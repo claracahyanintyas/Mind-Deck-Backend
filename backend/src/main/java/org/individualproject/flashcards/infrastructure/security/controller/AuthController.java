@@ -14,6 +14,7 @@ import org.individualproject.flashcards.application.security.RefreshTokenUseCase
 import org.individualproject.flashcards.application.security.RegisterUserUseCase;
 import org.individualproject.flashcards.application.user.DTO.UserPublicData;
 import org.individualproject.flashcards.infrastructure.security.DTO.LoginRequest;
+import org.individualproject.flashcards.infrastructure.security.DTO.RegisterRequest;
 import org.individualproject.flashcards.infrastructure.security.jwt.JwtTokenProvider;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -96,7 +97,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<UserPublicData> register(
-            @Valid @RequestBody RegisterCommand command
+            @Valid @RequestBody RegisterRequest request
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         // 1. Try to extract the existing guest's username from the SecurityContext
@@ -112,6 +113,7 @@ public class AuthController {
             }
         }
 
+        RegisterCommand command  = new RegisterCommand(request.username(), request.email(), request.password());
         jwtAuthOutput output = registerUserUseCase.registerUser(command, guestUsername);
 
         ResponseCookie jwtCookie = tokenProvider.generateJwtCookie(output.token());
